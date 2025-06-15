@@ -45,7 +45,19 @@ body {
 .profile-picture {
     /* --- CHANGES HERE --- */
     grid-column: 2 / 3;
-    grid-row: 1 / 2;
+    grid-row: 1 / 3; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Increased gap slightly */
+}
+
+.profile-picture {
+    /* --- CHANGE HERE --- */
+    /* Increased the width and height */
+    width: 220px;
+    height: 220px;
+    
     background-color: #ccc;
     /* Uncomment the line below and replace with your image */
     /* background-image: url('images/profile-picture.png'); */
