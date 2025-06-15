@@ -29,7 +29,7 @@ body {
 
 .profile-area {
     position: absolute;
-    bottom: -230px; /* Pulls the section down */
+    bottom: -260px; /* Pulls the section down */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -55,7 +55,7 @@ body {
     /* --- CHANGE HERE --- */
     /* Increased the width and height */
     position: relative; 
-    top: -70px;
+    top: -10px;
     z-index: -1;
     background-color: #ccc;
     /* Uncomment the line below and replace with your image */
@@ -94,8 +94,9 @@ body {
 .nav-hobbies { grid-column: 3 / 4; grid-row: 1 / 2; align-self: end; }
 .nav-goals { grid-column: 3 / 4; grid-row: 2 / 3; align-self: start; }
 .nav-about {
+    position:relative;
+    bottom: 80px;
   background-color: transparent;
-  border: 2px solid #007bff;
   color: #007bff;
   padding: 13px 20px;
 }
