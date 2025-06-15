@@ -1,62 +1,50 @@
+<!-- Example for blogs.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Your Name</title>
+    <title>Your Name - Blogs</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">YN</a>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html" class="active">Blog</a></li>
-                </ul>
-            </nav>
+
+    <!-- You can copy the same header on every page for consistency -->
+    <header class="main-header">
+        <div class="cover-photo">
+            <p>Cool cover photo</p>
+        </div>
+        <div class="profile-area">
+            <a href="blogs.html" class="nav-button nav-blogs">Blogs</a>
+            <a href="experiences.html" class="nav-button nav-experiences">Experiences</a>
+            
+            <div class="profile-picture">
+                <p>Profile picture</p>
+            </div>
+            
+            <a href="hobbies.html" class="nav-button nav-hobbies">Hobbies</a>
+            <a href="goals.html" class="nav-button nav-goals">Goals/Projects</a>
+
+            <a href="about.html" class="nav-button nav-about">About me</a>
         </div>
     </header>
 
     <main>
-        <section class="content-page">
-            <div class="container">
-                <h2>My Blog</h2>
-                <p>Here I write about technology, personal growth, and other things I find interesting.</p>
+        <!-- Page specific content goes here -->
+        <h1>My Blogs</h1>
+        <p>This is where I'll write my blog posts.</p>
+        
+        <!-- Example of how a post might look on this page -->
+        <article id="post1" class="latest-item">
+            <h2>My First Blog Post</h2>
+            <p>This is the full content of the blog post. It can be as long as you want!</p>
+        </article>
 
-                <div class="blog-posts">
-                    <article class="blog-post">
-                        <h3><a href="#">My First Post: Setting Up a GitHub Pages Site</a></h3>
-                        <p class="post-meta">Published on October 26, 2023</p>
-                        <p>In this post, I walk through the exact steps I took to create and host this personal website for free using GitHub Pages...</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </article>
-
-                    <article class="blog-post">
-                        <h3><a href="#">A Guide to Modern CSS</a></h3>
-                        <p class="post-meta">Published on October 15, 2023</p>
-                        <p>CSS has come a long way. Let's explore some powerful features like Flexbox, Grid, and custom properties that make styling websites a joy...</p>
-                        <a href="#" class="read-more">Read More →</a>
-                    </article>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>© 2024 [Your Name]. All Rights Reserved.</p>
-            <p>
-                <a href="#">GitHub</a> •
-                <a href="#">LinkedIn</a> •
-                <a href="#">Twitter</a>
-            </p>
-        </div>
+        —
     </footer>
+
 </body>
 </html>
