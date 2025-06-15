@@ -189,6 +189,9 @@ footer {
         padding-top: 20px; /* Add some space from the cover photo */
         gap: 20px;
     }
+        .profile-container {
+        order: -1; 
+    }
 
     /* Reset the grid placement for the buttons so they flow naturally */
     .nav-blogs, .nav-experiences, .nav-hobbies, .nav-goals, .profile-container {
