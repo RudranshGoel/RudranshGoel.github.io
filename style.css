@@ -29,7 +29,7 @@ body {
 
 .profile-area {
     position: absolute;
-    bottom: -30000px; /* Pulls the section down */
+    bottom: -140px; /* Pulls the section down */
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
