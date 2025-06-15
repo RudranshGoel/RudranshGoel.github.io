@@ -3,46 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Home</title>
+    <title>Your Name - Home</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">YN</a>
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                </ul>
-            </nav>
+
+    <header class="main-header">
+        <div class="cover-photo">
+            <p>Cool cover photo</p>
+        </div>
+        <div class="profile-area">
+            <a href="blogs.html" class="nav-button nav-blogs">Blogs</a>
+            <a href="experiences.html" class="nav-button nav-experiences">Experiences</a>
+            
+            <div class="profile-picture">
+                <p>Profile picture</p>
+            </div>
+            
+            <a href="hobbies.html" class="nav-button nav-hobbies">Hobbies</a>
+            <a href="goals.html" class="nav-button nav-goals">Goals/Projects</a>
+
+            <a href="about.html" class="nav-button nav-about">About me</a>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Hi, I'm [Your Name]</h1>
-                <p class="subtitle">A Developer / Designer / Writer / Creator</p>
-                <p>Welcome to my little corner of the internet. I'm passionate about building things, sharing knowledge, and continuous learning. Feel free to look around!</p>
-                <a href="about.html" class="btn">Learn More About Me</a>
-            </div>
+        <section class="latest-section">
+            <h2>Latest</h2>
+            <!-- The latest posts will be injected here by script.js -->
+            <div id="latest-container"></div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>© 2024 [Your Name]. All Rights Reserved.</p>
-            <p>
-                <a href="#">GitHub</a> •
-                <a href="#">LinkedIn</a> •
-                <a href="#">Twitter</a>
-            </p>
-        </div>
+        —
     </footer>
+
+    <!-- Scripts at the end of the body -->
+    <script src="script.js"></script>
 </body>
 </html>
