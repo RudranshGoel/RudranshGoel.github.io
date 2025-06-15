@@ -12,7 +12,7 @@ body {
     width: 100%;
     /* --- CHANGE HERE --- */
     /* Increased margin to give the larger picture more space */
-    margin-bottom: 240px; 
+    margin: 0px auto 150px auto; 
 }
 
 .cover-photo {
@@ -26,14 +26,13 @@ body {
     align-items: center;
     font-size: 2em;
     color: #666;
-    border-bottom: 4px solid #333;
 }
 
 .profile-area {
     position: absolute;
     /* --- CHANGE HERE --- */
     /* Adjusted bottom positioning for the larger picture */
-    bottom: -210px;
+    bottom: -200px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
@@ -57,8 +56,11 @@ body {
 .profile-picture {
     /* --- CHANGE HERE --- */
     /* Increased the width and height */
+    position: relative; 
+    top: -70px
     width: 220px;
     height: 220px;
+    z-index: -1
     
     background-color: #ccc;
     /* background-image: url('images/profile-picture.png'); */
