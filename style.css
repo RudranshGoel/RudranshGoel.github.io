@@ -45,7 +45,7 @@ body {
     align-items: center;
 }
 
-.profile-container {
+.profile-picture {
     grid-column: 2 / 3;
     grid-row: 1 / 3; 
     display: flex;
@@ -64,7 +64,11 @@ body {
     /* background-image: url('images/profile-picture.png'); */
     background-size: cover;
     background-position: center;
-    margin: 0;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    border-radius: 50%; /* Makes it circular */
+    border: 4px solid #333;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -93,6 +97,7 @@ body {
 .nav-experiences { grid-column: 1 / 2; grid-row: 2 / 3; align-self: start; }
 .nav-hobbies { grid-column: 3 / 4; grid-row: 1 / 2; align-self: end; }
 .nav-goals { grid-column: 3 / 4; grid-row: 2 / 3; align-self: start; }
+.nav-about { grid-column: 2 / 3; grid-row: 2 / 3; width: 60%; margin: 0 auto; align-self: start; }
 
 .nav-about { 
     width: 80%;
@@ -131,6 +136,7 @@ main {
     margin-bottom: 10px;
 }
 
+/* This is the special styling for the Title and Section Name links */
 .latest-item-header .title-link, .latest-item-header .section-link {
     color: #007bff;
     text-decoration: none;
@@ -146,6 +152,7 @@ main {
     max-width: 150px;
     max-height: 150px;
     object-fit: cover;
+    border: 1px solid #ccc;
 }
 
 /* Footer */
