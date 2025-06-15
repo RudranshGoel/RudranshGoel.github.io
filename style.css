@@ -57,10 +57,10 @@ body {
     /* --- CHANGE HERE --- */
     /* Increased the width and height */
     position: relative; 
-    top: -70px
+    top: -70px;
     width: 220px;
     height: 220px;
-    z-index: -1
+    z-index: -1;
     
     background-color: #ccc;
     /* background-image: url('images/profile-picture.png'); */
