@@ -83,19 +83,19 @@ body {
     font-weight: bold;
     transition: transform 0.2s ease-in-out, background-color 0.2s; /* Smooth transition */
 }
+
+.nav-button:hover {
+    transform: scale(1.1); 
+    background-color: #3B0764; 
+    color: #E9D5FF;
+}
 .outlined-text {
   color: white;
   text-shadow:
-    -1px -1px 0 #000,
-     1px -1px 0 #000,
-    -1px  1px 0 #000,
-     1px  1px 0 #000;
-}
-
-.nav-button:hover {
-    transform: scale(1.05); /* Slightly increase size on hover */
-    background-color: #3B0764; /* Less transparent on hover */
-    color: #E9D5FF;
+    -1px -1px 0 #3B0764,
+     1px -1px 0 #3B0764,
+    -1px  1px 0 #3B0764,
+     1px  1px 0 #3B0764;
 }
 
 /* Placing the nav buttons in the grid */
