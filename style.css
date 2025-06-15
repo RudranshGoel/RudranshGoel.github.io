@@ -43,6 +43,7 @@ body {
 }
 
 .profile-picture {
+    /* --- CHANGES HERE --- */
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     background-color: #ccc;
@@ -53,8 +54,8 @@ body {
     width: 180px;
     height: 180px;
     margin: 0 auto;
-    border-radius: 50%; /* Makes it circular */
-    border: 4px solid #333;
+    /* border-radius: 50% has been removed to make it square */
+    /* border: 4px solid #333 has been removed */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,6 +84,7 @@ body {
 .nav-experiences { grid-column: 1 / 2; grid-row: 2 / 3; align-self: start; }
 .nav-hobbies { grid-column: 3 / 4; grid-row: 1 / 2; align-self: end; }
 .nav-goals { grid-column: 3 / 4; grid-row: 2 / 3; align-self: start; }
+/* This rule correctly places the 'About me' button in the middle column, second row (under the picture) */
 .nav-about { grid-column: 2 / 3; grid-row: 2 / 3; width: 60%; margin: 0 auto; align-self: start; }
 
 
@@ -119,7 +121,6 @@ main {
     margin-bottom: 10px;
 }
 
-/* This is the special styling for the Title and Section Name links */
 .latest-item-header .title-link, .latest-item-header .section-link {
     color: #007bff; /* The requested blue color */
     text-decoration: none;
@@ -144,10 +145,11 @@ main {
 }
 
 .latest-item-image img {
+    /* --- CHANGES HERE --- */
     max-width: 150px;
     max-height: 150px;
     object-fit: cover;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; has been removed */
 }
 
 /* Footer */
