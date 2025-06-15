@@ -25,6 +25,7 @@ body {
     align-items: center;
     font-size: 2em;
     color: #666;
+    border-bottom: 4px solid #333;
 }
 
 .profile-area {
