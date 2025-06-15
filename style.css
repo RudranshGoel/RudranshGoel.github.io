@@ -41,7 +41,7 @@ body {
     align-items: center;
 }
 
-.profile-picture {
+.profile-container {
     /* --- CHANGES HERE --- */
     grid-column: 2 / 3;
     grid-row: 1 / 3; 
@@ -93,8 +93,17 @@ body {
 .nav-experiences { grid-column: 1 / 2; grid-row: 2 / 3; align-self: start; }
 .nav-hobbies { grid-column: 3 / 4; grid-row: 1 / 2; align-self: end; }
 .nav-goals { grid-column: 3 / 4; grid-row: 2 / 3; align-self: start; }
-.nav-about { grid-column: 2 / 3; grid-row: 2 / 3; width: 60%; margin: 0 auto; align-self: start; }
+.nav-about {
+  background-color: transparent;
+  border: 2px solid #007bff;
+  color: #007bff;
+  padding: 13px 20px;
+}
 
+.nav-about:hover {
+  background-color: #007bff;
+  color: white;
+}
 .nav-about { 
     width: 80%;
 }
