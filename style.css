@@ -5,7 +5,7 @@ body {
     
     /* --- NEW BACKGROUND STYLES --- */
     background-color: #1a1a1d; /* Fallback color if the image fails to load */
-    background-image: url('images/Texture\ 2.jpg'); /* Path to your image */
+    background-image: url('images/Texture.jpg'); /* Path to your image */
     background-size: cover; /* Scales the image to cover the entire screen */
     background-attachment: fixed; /* The background stays in place when scrolling */
     background-position: center; /* Centers the image */
