@@ -16,7 +16,7 @@ body {
 .cover-photo {
     background-color: #e0e0e0; /* Placeholder color */
     /* Uncomment the line below and replace with your image */
-    /* background-image: url('images/cover-photo.jpg'); */
+    background-image: url('images/black-smooth-wall-textured-background.jpg');
     background-size: cover;
     background-position: center;
     height: 300px;
