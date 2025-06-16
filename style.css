@@ -296,7 +296,7 @@ main {
 /* --- Simple Page Header --- */
 .page-header {
     padding: 30px 20px;
-    border-bottom: 1px solid #3B0764; /* A subtle separator */
+    border-bottom: 2px solid #3B0764; /* A subtle separator */
 }
 
 .simple-nav {
@@ -307,29 +307,29 @@ main {
     gap: 15px;
 }
 
+
 .simple-nav-button {
-    color: #E9D5FF; /* Light purple text */
-    background-color: transparent;
-    border: 2px solid #3B0764; /* Dark purple border */
+    color: #C084FC;
+    background-color: #1E1B2E;
+    border: 2px solid #3B0764;
     padding: 10px 25px;
-    border-radius: 50px; /* This creates the pill shape */
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
     font-size: 1em;
-    transition: background-color 0.2s, color 0.2s; /* Smooth hover transition */
+    transition: transform 0.2s ease-in-out, background-color 0.2s, color 0.2s;
 }
 
-/* This creates the same hover effect as your home page buttons */
 .simple-nav-button:hover {
+    transform: scale(1.2);
     background-color: #3B0764;
-    color: white;
+    color: #E9D5FF;
 }
-
 
 
 
 .page-heading {
-    font-size: 1.8em;
+    font-size: 2em;
     color: white;
     margin-bottom: 15px;
 }
@@ -337,7 +337,7 @@ main {
 .main-content-text {
     font-size: 1.1em;
     line-height: 1.7;
-    color: #ccc; /* Light gray for easy reading */
+    color: white; /* Light gray for easy reading */
 }
 
 
@@ -359,7 +359,4 @@ main {
     color: #C084FC; /* Using your theme's accent color */
     padding: 0 0 0 10px;
     border: none;
-}
-.heading-section{
-    color: white;
 }
