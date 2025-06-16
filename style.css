@@ -295,3 +295,72 @@ footer {
         font-size: 1.5em;
     }
 }
+/* ================================================= */
+/* === STYLES FOR SIMPLE INTERNAL PAGES (About, etc.) === */
+/* ================================================= */
+
+/* --- Simple Page Header --- */
+.page-header {
+    padding: 30px 20px;
+    border-bottom: 1px solid #3B0764; /* A subtle separator */
+}
+
+.simple-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+    gap: 15px;
+}
+
+.simple-nav-button {
+    color: #E9D5FF; /* Light purple text */
+    background-color: transparent;
+    border: 2px solid #3B0764; /* Dark purple border */
+    padding: 10px 25px;
+    border-radius: 50px; /* This creates the pill shape */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+    transition: background-color 0.2s, color 0.2s; /* Smooth hover transition */
+}
+
+/* This creates the same hover effect as your home page buttons */
+.simple-nav-button:hover {
+    background-color: #3B0764;
+    color: white;
+}
+
+
+/* --- Simple Page Content --- */
+.page-container {
+    max-width: 800px;
+    margin: 40px auto; /* Adds space from header and centers content */
+    padding: 0 20px;
+}
+
+.page-heading {
+    font-size: 1.8em;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.main-content-text {
+    font-size: 1.1em;
+    line-height: 1.7;
+    color: #ccc; /* Light gray for easy reading */
+}
+
+.page-divider {
+    border: 0;
+    height: 2px;
+    background-color: #3B0764; /* Use theme color for the line */
+    margin: 50px 0;
+}
+
+.page-quote {
+    font-size: 1.1em;
+    color: #ccc;
+    margin: 0;
+    padding: 0;
+}
