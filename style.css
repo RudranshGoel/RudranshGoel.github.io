@@ -153,13 +153,39 @@ main {
     margin-bottom: 10px;
 }
 
-/* This is the special styling for the Title and Section Name links */
+/* --- NEW SLIDING HIGHLIGHT STYLES FOR LINKS --- */
+
 .latest-item-header .title-link, .latest-item-header .section-link {
+    position: relative; /* Required for the pseudo-element positioning */
     color: #C084FC;
     text-decoration: none;
     font-weight: bold;
+    z-index: 1; /* Ensures the text stays above the highlight */
 }
 
+/* This creates the highlight itself */
+.latest-item-header .title-link::after,
+.latest-item-header .section-link::after {
+    content: '';
+    position: absolute;
+    z-index: -1; /* Places the highlight BEHIND the text */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #3B0764; /* The highlight color */
+    transform: scaleX(0); /* Initially, the highlight is hidden (0 width) */
+    transform-origin: left; /* Animation starts from the left */
+    transition: transform 0.3s ease-in-out; /* The smooth animation */
+}
+
+/* This triggers the animation on hover */
+.latest-item-header .title-link:hover::after,
+.latest-item-header .section-link:hover::after {
+    transform: scaleX(1); /* On hover, expand to full width */
+}
+
+/* Keep the font size rules */
 .latest-item-header .title-link {
     font-size: 1.5em;
 }
@@ -169,12 +195,14 @@ main {
     margin-left: 5px;
 }
 
+/* REMOVE the old hover rule as we no longer need the underline */
+/* 
 .latest-item-header .title-link:hover, .latest-item-header .section-link:hover {
     text-decoration: underline;
 }
-
+*/
 .latest-item .preview-text {
-    color: #555;
+    color: white;
 }
 
 .latest-item-image img {
