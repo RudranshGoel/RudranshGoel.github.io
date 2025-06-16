@@ -270,8 +270,8 @@ footer {
 
     /* Reduce the profile picture size for smaller screens */
     .profile-picture {
-        width: 180px;
-        height: 180px;
+        width: 200px;
+        height: 200px;
         top: 0; /* Reset any vertical shift */
     }
 
