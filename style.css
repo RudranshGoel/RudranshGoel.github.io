@@ -126,7 +126,7 @@ body {
 }
 
 .nav-about:hover {
-    background-color: #3B0764; /* Less transparent on hover */
+    background-color: #3B0764; 
     color: #E9D5FF;
 }
 .nav-about { 
