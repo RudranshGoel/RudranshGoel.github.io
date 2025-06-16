@@ -138,6 +138,7 @@ main {
     padding: 20px;
     max-width: 80%;
     margin: 0 auto;
+    flex-grow: 1;
 }
 
 .latest-section h2 {
@@ -211,12 +212,6 @@ main {
     margin-left: 5px;
 }
 
-/* REMOVE the old hover rule as we no longer need the underline */
-/* 
-.latest-item-header .title-link:hover, .latest-item-header .section-link:hover {
-    text-decoration: underline;
-}
-*/
 .latest-item .preview-text {
     color: white;
 }
@@ -331,12 +326,7 @@ main {
 }
 
 
-.page-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 0 20px;
-    flex-grow: 1;
-}
+
 
 .page-heading {
     font-size: 1.8em;
