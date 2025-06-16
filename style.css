@@ -155,26 +155,9 @@ main {
 
 /* This is the special styling for the Title and Section Name links */
 .latest-item-header .title-link, .latest-item-header .section-link {
-    position: relative;
-    display: inline-block;
     color: #C084FC;
     text-decoration: none;
     font-weight: bold;
-    margin: 0 -0.25rem;
-    padding: 0 0.25rem;
-    transition: color 0.3s ease-in-out;
-    text-decoration: none;
-    z-index: 0;
-}
-.latest-item-header .title-link::before, .latest-item-header .section-link::before {
-  content: '';
-  position: absolute;
-  inset: 0; /* shorthand for top: 0; right: 0; bottom: 0; left: 0 */
-  background-color: #54b3d6;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease-in-out;
-  z-index: -1; /* behind the text */
 }
 
 .latest-item-header .title-link {
@@ -188,9 +171,6 @@ main {
 
 .latest-item-header .title-link:hover, .latest-item-header .section-link:hover {
     text-decoration: underline;
-}
-.latest-item-header .title-link:hover, .latest-item-header .section-link::before {
-  transform: scaleX(1);
 }
 
 .latest-item .preview-text {
