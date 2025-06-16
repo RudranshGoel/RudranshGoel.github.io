@@ -3,56 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Your Name</title>
+    <!-- Changed the title for the About page -->
+    <title>Your Name - About</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">YN</a>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                </ul>
-            </nav>
+
+    <!-- This header is the same as on index.html for consistent navigation. -->
+    <!-- Note: I've updated the "Goals/Projects" link to just "Projects" to match your wireframe. -->
+    <header class="main-header">
+        <div class="cover-photo">
+        </div>
+        <div class="profile-area">
+            <a href="blogs.html" class="nav-button nav-blogs">Blogs</a>
+            <a href="experiences.html" class="nav-button nav-experiences">Experiences</a>
+            
+            <div class="profile-container">
+                <div class="profile-picture">
+                </div>
+                <!-- The "About" button links to this page. -->
+                <a href="about.html" class="nav-button nav-about outlined-text">About</a>
+            </div>
+
+            <a href="hobbies.html" class="nav-button nav-hobbies">Hobbies</a>
+            <!-- I've updated this to link to projects.html and say "Projects" -->
+            <a href="projects.html" class="nav-button nav-goals">Projects</a>
         </div>
     </header>
 
+    <!-- The main content for the About page starts here -->
     <main>
-        <section class="content-page">
-            <div class="container">
-                <h2>About Me</h2>
-                <p>Hello! I'm [Your Name]. I have a background in [Your Field] and I love working on projects that involve [Your Interests, e.g., web development, data science, creative writing].</p>
-                <p>This website serves as my digital portfolio and a place to document my journey. I believe in the power of sharing and open-source collaboration.</p>
+        <section class="about-section">
+            <h2>About</h2>
+            <p>
+                <Main text goes here>
+                <br><br>
+                This is where you can write a detailed description about yourself. Talk about your journey, your passions, and what drives you. You can mention your professional background, your skills, and what you're currently working on or learning. Feel free to make it personal and engaging for visitors to your site.
+            </p>
+            
+            <hr class="content-divider">
 
-                <h3>My Skills</h3>
-                <ul>
-                    <li>HTML, CSS, JavaScript</li>
-                    <li>Python & Data Analysis</li>
-                    <li>UI/UX Design Principles</li>
-                    <li>Project Management</li>
-                </ul>
-
-                <h3>Contact Me</h3>
-                <p>The best way to reach me is via <a href="mailto:your.email@example.com">email</a> or through my social media profiles listed in the footer.</p>
-            </div>
+            <blockquote>
+                "A quote goes here. It could be something that inspires you, a personal motto, or a line from your favorite book or movie."
+            </blockquote>
         </section>
     </main>
 
+    <!-- Same footer for consistency -->
     <footer>
-        <div class="container">
-            <p>© 2024 [Your Name]. All Rights Reserved.</p>
-            <p>
-                <a href="#">GitHub</a> •
-                <a href="#">LinkedIn</a> •
-                <a href="#">Twitter</a>
-            </p>
-        </div>
+        —
     </footer>
+
+    <!-- Same script tag for consistency -->
+    <script src="script.js"></script>
 </body>
 </html>
