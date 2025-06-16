@@ -136,7 +136,7 @@ body {
 /* Latest Section */
 main {
     padding: 20px;
-    max-width: 900px;
+    max-width: 80%;
     margin: 0 auto;
 }
 
@@ -369,4 +369,7 @@ main {
     color: #C084FC; /* Using your theme's accent color */
     padding: 0 0 0 10px;
     border: none;
+}
+.heading-section{
+    color: white;
 }
