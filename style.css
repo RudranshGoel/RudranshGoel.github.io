@@ -63,7 +63,7 @@ body {
     position: relative; 
     top: -10px;
     z-index: -1;
-    background-color: #ccc;
+    background-color: transparent;
     /* Uncomment the line below and replace with your image */
     /* background-image: url('images/Profile\ photo.jpg'); */
     background-image: url('images/Profile_photo-removebg-preview.png');
