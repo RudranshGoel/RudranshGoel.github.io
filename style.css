@@ -260,6 +260,9 @@ footer {
         grid-row: auto;
         align-self: auto;
     }
+    .nav-about{
+        top: 2px;
+    }
     
     /* Make all nav buttons take up more width */
     .nav-button {
