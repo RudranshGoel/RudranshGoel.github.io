@@ -363,7 +363,7 @@ main {
 /* Style for the quote text */
 .quote-text {
     font-family: Georgia, serif; /* A classic font for quotes */
-    font-size: 1.1em;
+    font-size: 2em;
     font-style: italic;
     text-align: left;
     color: #C084FC; /* Using your theme's accent color */
