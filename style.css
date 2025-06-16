@@ -358,6 +358,15 @@ footer {
     margin: 50px 0;
 }
 
+/* The horizontal line from your wireframe */
+.content-divider {
+    border: 0;
+    height: 1px;
+    background-color: #555;
+    margin: 40px 0;
+}
+
+
 /* Style for the quote text */
 .quote-text {
     font-family: Georgia, serif; /* A classic font for quotes */
