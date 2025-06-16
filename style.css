@@ -14,9 +14,9 @@ body {
     color: white; /* A light gray for all default text */
 
 
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh; */
 }
 
 /* Header and Profile Section */
