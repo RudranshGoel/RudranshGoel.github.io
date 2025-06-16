@@ -57,7 +57,7 @@ body {
     z-index: -1;
     background-color: #ccc;
     /* Uncomment the line below and replace with your image */
-    /* background-image: url('images/profile-picture.png'); */
+    background-image: url('images/Profile\ photo.jpg');
     background-size: cover;
     background-position: center;
     width: 300px;
