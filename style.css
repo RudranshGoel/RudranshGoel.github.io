@@ -161,11 +161,11 @@ main {
     text-decoration: none;
     font-weight: bold;
     z-index: 1; /* Ensures the text stays above the highlight */
+    transition: color 0.3s ease-in-out;
 }
 
 /* This creates the highlight itself */
-.latest-item-header .title-link::after,
-.latest-item-header .section-link::after {
+.latest-item-header .title-link::after, .latest-item-header .section-link::after {
     content: '';
     position: absolute;
     z-index: -1; /* Places the highlight BEHIND the text */
@@ -178,10 +178,12 @@ main {
     transform-origin: left; /* Animation starts from the left */
     transition: transform 0.3s ease-in-out; /* The smooth animation */
 }
+.latest-item-header .title-link:hover, .latest-item-header .section-link:hover {
+    color: #E9D5FF;
+}
 
 /* This triggers the animation on hover */
-.latest-item-header .title-link:hover::after,
-.latest-item-header .section-link:hover::after {
+.latest-item-header .title-link:hover::after, .latest-item-header .section-link:hover::after {
     transform: scaleX(1); /* On hover, expand to full width */
 }
 
