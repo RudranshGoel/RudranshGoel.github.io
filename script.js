@@ -6,14 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // To add a new post, just copy one of the blocks and change the details.
     const posts = [
         {
-            title: "Experiment page",
-            sectionName: "Blogs",
-            sectionLink: "blogs.html", // Link to the section page
-            postLink: "blogs.html#post1", // A link to the specific post (using an anchor)
-            preview: "This is a preview of my very first blog post where I talk about setting up this website...",
-            image: "images/latest-post-image.jpg" // Path to image, or leave as "" for no image
-        },
-        {
             title: "My First Blog Post",
             sectionName: "Blogs",
             sectionLink: "blogs.html", // Link to the section page
