@@ -229,13 +229,7 @@ main {
     /* border: 1px solid #ccc; has been removed */
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 2em;
-    color: #777;
-}
+
 @media (max-width: 768px) {
     .cover-photo{
         display: none;
@@ -360,28 +354,19 @@ footer {
 /* The horizontal line from your wireframe */
 .content-divider {
     border: 0;
-    height: 1px;
-    background-color: #555;
-    margin: 40px 0;
+    height: 2px;
+    background-color: #3B0764;
+    margin: 40px 0 20px 0;
 }
 
 
 /* Style for the quote text */
 .quote-text {
     font-family: Georgia, serif; /* A classic font for quotes */
-    font-size: 2em;
+    font-size: 1.1em;
     font-style: italic;
     text-align: left;
     color: #C084FC; /* Using your theme's accent color */
-    margin: 20px 0 0 0; /* Margin on top, but not bottom */
-    padding: 0;
+    padding: 0 0 0 10px;
     border: none;
-}
-.page-footer {
-    width: 100%;
-    padding: 30px 20px;
-    text-align: center;
-    font-size: 1.1em;
-    color: #ccc;
-    box-sizing: border-box; /* Ensures padding is included in the width */
 }
