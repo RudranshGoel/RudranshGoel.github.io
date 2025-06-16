@@ -230,6 +230,9 @@ footer {
     color: #777;
 }
 @media (max-width: 768px) {
+    .cover-photo{
+        display: none;
+    }
 
     /* Make the header layout simpler and let it take up space naturally */
     .main-header {
