@@ -12,6 +12,11 @@ body {
 
     /* We will need to change the default text color now */
     color: white; /* A light gray for all default text */
+
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Header and Profile Section */
@@ -332,11 +337,11 @@ footer {
 }
 
 
-/* --- Simple Page Content --- */
 .page-container {
     max-width: 800px;
-    margin: 40px auto; /* Adds space from header and centers content */
+    margin: 40px auto;
     padding: 0 20px;
+    flex-grow: 1;
 }
 
 .page-heading {
@@ -351,12 +356,6 @@ footer {
     color: #ccc; /* Light gray for easy reading */
 }
 
-.page-divider {
-    border: 0;
-    height: 2px;
-    background-color: #3B0764; /* Use theme color for the line */
-    margin: 50px 0;
-}
 
 /* The horizontal line from your wireframe */
 .content-divider {
@@ -370,11 +369,19 @@ footer {
 /* Style for the quote text */
 .quote-text {
     font-family: Georgia, serif; /* A classic font for quotes */
-    font-size: 1.2em;
+    font-size: 2em;
     font-style: italic;
-    text-align: center;
+    text-align: left;
     color: #C084FC; /* Using your theme's accent color */
     margin: 20px 0 0 0; /* Margin on top, but not bottom */
     padding: 0;
     border: none;
+}
+.page-footer {
+    width: 100%;
+    padding: 30px 20px;
+    text-align: center;
+    font-size: 1.1em;
+    color: #ccc;
+    box-sizing: border-box; /* Ensures padding is included in the width */
 }
