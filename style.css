@@ -358,9 +358,14 @@ footer {
     margin: 50px 0;
 }
 
-.page-quote {
-    font-size: 1.1em;
-    color: #ccc;
-    margin: 0;
+/* Style for the quote text */
+.quote-text {
+    font-family: Georgia, serif; /* A classic font for quotes */
+    font-size: 1.2em;
+    font-style: italic;
+    text-align: center;
+    color: #C084FC; /* Using your theme's accent color */
+    margin: 20px 0 0 0; /* Margin on top, but not bottom */
     padding: 0;
+    border: none;
 }
