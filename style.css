@@ -262,7 +262,7 @@ main {
 }
 
 /* This creates the highlight itself */
-.post-item-header .post-link::after{
+.post-item-header .title-link::after{
     content: '';
     position: absolute;
     z-index: -1; /* Places the highlight BEHIND the text */
