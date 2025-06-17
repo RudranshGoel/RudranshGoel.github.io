@@ -149,6 +149,8 @@ main {
     color: white;
 }
 
+
+/* This part is redundant, might remove later */
 .latest-item {
     background-color: #2D2A32;
     border: 1px solid #ddd;
@@ -223,6 +225,95 @@ main {
     object-fit: cover;
     /* border: 1px solid #ccc; has been removed */
 }
+
+
+
+
+
+
+.post-item {
+    background-color: #2D2A32;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.latest-content {
+    flex-grow: 1;
+}
+
+.latest-item-header {
+    margin-bottom: 10px;
+}
+
+/* --- NEW SLIDING HIGHLIGHT STYLES FOR LINKS --- */
+
+.latest-item-header .title-link, .latest-item-header .section-link {
+    position: relative; /* Required for the pseudo-element positioning */
+    color: #C084FC;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1; /* Ensures the text stays above the highlight */
+    transition: color 0.3s ease-in-out;
+}
+
+/* This creates the highlight itself */
+.latest-item-header .title-link::after, .latest-item-header .section-link::after {
+    content: '';
+    position: absolute;
+    z-index: -1; /* Places the highlight BEHIND the text */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #3B0764; /* The highlight color */
+    transform: scaleX(0); /* Initially, the highlight is hidden (0 width) */
+    transform-origin: left; /* Animation starts from the left */
+    transition: transform 0.3s ease-in-out; /* The smooth animation */
+}
+.latest-item-header .title-link:hover, .latest-item-header .section-link:hover {
+    color: #E9D5FF;
+}
+
+/* This triggers the animation on hover */
+.latest-item-header .title-link:hover::after, .latest-item-header .section-link:hover::after {
+    transform: scaleX(1); /* On hover, expand to full width */
+}
+
+/* Keep the font size rules */
+.latest-item-header .title-link {
+    font-size: 1.5em;
+}
+
+.latest-item-header .section-link {
+    font-size: 1em;
+    margin-left: 5px;
+}
+
+.latest-item .preview-text {
+    color: white;
+}
+
+.latest-item-image img {
+    /* --- CHANGES HERE --- */
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    /* border: 1px solid #ccc; has been removed */
+}
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 768px) {
