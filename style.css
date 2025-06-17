@@ -248,6 +248,7 @@ main {
 }
 
 .post-item {
+    height: 130px;
     padding: 20px;
     margin-bottom: 20px;
     display: flex;
