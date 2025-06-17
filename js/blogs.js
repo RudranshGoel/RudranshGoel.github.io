@@ -59,10 +59,10 @@ async function loadPosts() {
             // Check if the post was loaded successfully (not null)
             if (post) {
                 const postElement = document.createElement('div');
-                postElement.classList.add('latest-item');
+                postElement.classList.add('post-item');
                 postElement.innerHTML = `
-                <div class="latest-content">
-                    <div class="latest-item-header">
+                <div class="post-content">
+                    <div class="post-item-header">
                         <a href="${post.postLink}" class="title-link">${post.title}</a>
                     </div>
                     <p class="preview-text">${post.html}</p>

@@ -242,17 +242,17 @@ main {
     gap: 20px;
 }
 
-.latest-content {
+.post-content {
     flex-grow: 1;
 }
 
-.latest-item-header {
+.post-item-header {
     margin-bottom: 10px;
 }
 
 /* --- NEW SLIDING HIGHLIGHT STYLES FOR LINKS --- */
 
-.latest-item-header .title-link, .latest-item-header .section-link {
+.post-item-header .title-link{
     position: relative; /* Required for the pseudo-element positioning */
     color: #C084FC;
     text-decoration: none;
@@ -262,7 +262,7 @@ main {
 }
 
 /* This creates the highlight itself */
-.latest-item-header .title-link::after, .latest-item-header .section-link::after {
+.post-item-header .post-link::after{
     content: '';
     position: absolute;
     z-index: -1; /* Places the highlight BEHIND the text */
@@ -275,42 +275,24 @@ main {
     transform-origin: left; /* Animation starts from the left */
     transition: transform 0.3s ease-in-out; /* The smooth animation */
 }
-.latest-item-header .title-link:hover, .latest-item-header .section-link:hover {
+.post-item-header .title-link:hover {
     color: #E9D5FF;
 }
 
 /* This triggers the animation on hover */
-.latest-item-header .title-link:hover::after, .latest-item-header .section-link:hover::after {
+.post-item-header .title-link:hover::after {
     transform: scaleX(1); /* On hover, expand to full width */
 }
 
 /* Keep the font size rules */
-.latest-item-header .title-link {
+.post-item-header .title-link {
     font-size: 1.5em;
 }
 
-.latest-item-header .section-link {
-    font-size: 1em;
-    margin-left: 5px;
-}
 
-.latest-item .preview-text {
+.post-item .preview-text {
     color: white;
 }
-
-.latest-item-image img {
-    /* --- CHANGES HERE --- */
-    max-width: 150px;
-    max-height: 150px;
-    object-fit: cover;
-    /* border: 1px solid #ccc; has been removed */
-}
-
-
-
-
-
-
 
 
 
