@@ -228,9 +228,12 @@ main {
 
 
 
-
-.post-section{
-    color: white;
+.post-section {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    text-align: center;
 }
 
 .post-item {
