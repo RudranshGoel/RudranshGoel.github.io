@@ -229,7 +229,9 @@ main {
 
 
 
-
+.post-section{
+    color: white;
+}
 
 .post-item {
     background-color: transparent;
