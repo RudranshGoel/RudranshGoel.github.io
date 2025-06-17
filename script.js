@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             title: "Summer Internship Experience",
-            sectionName: "Experiences",
-            sectionLink: "experiences.html",
-            postLink: "experiences.html#summer-intern",
+            sectionName: "memoirs",
+            sectionLink: "memoirs.html",
+            postLink: "memoirs.html#summer-intern",
             preview: "I spent the summer working as a software developer intern. Here are my key takeaways...",
             image: "" // No image for this one
         },
