@@ -260,7 +260,7 @@ main {
     align-items: center;
     gap: 20px;
     animation: appear linear both;
-    animation-timeline: view(50% auto);
+    animation-timeline: view();
 
 }
 
