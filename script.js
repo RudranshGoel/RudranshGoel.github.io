@@ -23,9 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             title: "New Goal: Learn Python",
-            sectionName: "Goals/Projects",
-            sectionLink: "goals.html",
-            postLink: "goals.html#python-goal",
+            sectionName: "career/Projects",
+            sectionLink: "career.html",
+            postLink: "career.html#python-goal",
             preview: "I've decided to start learning Python for data science. I'll be tracking my progress here.",
             image: ""
         }

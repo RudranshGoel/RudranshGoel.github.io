@@ -114,8 +114,8 @@ body {
 /* Placing the nav buttons in the grid */
 .nav-blogs { grid-column: 1 / 2; grid-row: 1 / 2; align-self: end; }
 .nav-memoirs { grid-column: 1 / 2; grid-row: 2 / 3; align-self: start; }
-.nav-hobbies { grid-column: 3 / 4; grid-row: 1 / 2; align-self: end; }
-.nav-goals { grid-column: 3 / 4; grid-row: 2 / 3; align-self: start; }
+.nav-pastimes { grid-column: 3 / 4; grid-row: 1 / 2; align-self: end; }
+.nav-career { grid-column: 3 / 4; grid-row: 2 / 3; align-self: start; }
 .nav-about {
     position:relative;
     bottom: 80px;
@@ -251,7 +251,7 @@ main {
     }
 
     /* Reset the grid placement for the buttons so they flow naturally */
-    .nav-blogs, .nav-memoirs, .nav-hobbies, .nav-goals, .profile-container {
+    .nav-blogs, .nav-memoirs, .nav-pastimes, .nav-career, .profile-container {
         grid-column: auto;
         grid-row: auto;
         align-self: auto;
