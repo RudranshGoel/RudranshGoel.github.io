@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             title: "Summer Internship Experience",
-            sectionName: "memoirs",
+            sectionName: "Memoirs",
             sectionLink: "memoirs.html",
             postLink: "memoirs.html#summer-intern",
             preview: "I spent the summer working as a software developer intern. Here are my key takeaways...",
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             title: "New Goal: Learn Python",
-            sectionName: "career/Projects",
+            sectionName: "Career",
             sectionLink: "career.html",
             postLink: "career.html#python-goal",
             preview: "I've decided to start learning Python for data science. I'll be tracking my progress here.",
