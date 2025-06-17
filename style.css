@@ -227,13 +227,17 @@ main {
 }
 
 @keyframes appear {
-    from {
+    0% {
         opacity: 0;
         scale: 0.5;
     }
-    to {
+    45%, 55% {
         opacity: 1;
-        scale: 1;
+        scale: 1.5;
+    }
+    100% {
+        opacity: 0;
+        scale: 0.5;
 
     }
 }
@@ -255,9 +259,8 @@ main {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    animation: appear linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 40%;
+    animation: appear linear both;
+    animation-timeline: view(50% auto);
 
 }
 
