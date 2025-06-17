@@ -7,7 +7,7 @@ async function loadPosts() {
         // 1. Fetch the list of post filenames from our generated JSON file
         const response = await fetch('posts.json');
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error(`Failed to load posts.json: ${response.status} ${response.statusText}`);
         }
         const postFiles = await response.json();
 
@@ -19,37 +19,57 @@ async function loadPosts() {
             return;
         }
 
-        // 2. Loop through each post filename
-        for (const postFile of postFiles) {
-            // Fetch the content of the markdown file
-            const postResponse = await fetch(`posts/${postFile}`);
-            const markdownText = await postResponse.text();
+        // 2. Create an array of promises, one for each post
+        const postPromises = postFiles.map(async (postFile) => {
+            try {
+                const postResponse = await fetch(`posts/${postFile}`);
+                if (!postResponse.ok) {
+                    // Log an error for the specific file that failed
+                    console.error(`Failed to fetch ${postFile}: ${postResponse.status}`);
+                    // Return null so we can filter it out later
+                    return null;
+                }
+                const markdownText = await postResponse.text();
+                
+                // Create a title from the filename
+                const title = postFile
+                    .replace('.md', '')
+                    .replace(/-/g, ' ')
+                    .replace(/\b\w/g, char => char.toUpperCase());
 
-            // Convert markdown to HTML using the 'marked' library
-            const postHtml = marked.parse(markdownText);
-            
-            // Create a new article element to hold the post
-            const article = document.createElement('article');
-            article.classList.add('post');
+                // Convert markdown to HTML using the 'marked' library
+                const contentHtml = marked.parse(markdownText);
 
-            // Create a title from the filename
-            // e.g., "my-first-post.md" becomes "My First Post"
-            const title = postFile
-                .replace('.md', '')
-                .replace(/-/g, ' ')
-                .replace(/\b\w/g, char => char.toUpperCase());
+                // Return a structured object for this post
+                return {
+                    title: title,
+                    html: contentHtml
+                };
+            } catch (error) {
+                console.error(`Error processing file ${postFile}:`, error);
+                return null; // Return null on error
+            }
+        });
 
-            // Populate the article element
-            article.innerHTML = `
-                <h2 class = "title-link"> ${title} </h2>
-                <div class="preview-text">
-                    ${postHtml}
-                </div>
-            `;
+        // 3. Wait for all the fetch promises to resolve
+        const posts = await Promise.all(postPromises);
 
-            // 3. Append the new article to the container
-            postsContainer.appendChild(article);
-        }
+        // 4. Loop through the resolved posts and render them
+        posts.forEach(post => {
+            // Check if the post was loaded successfully (not null)
+            if (post) {
+                const article = document.createElement('article');
+                article.classList.add('post');
+                article.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <div class="post-content">
+                        ${post.html}
+                    </div>
+                `;
+                postsContainer.appendChild(article);
+            }
+        });
+
     } catch (error) {
         console.error("Could not load posts:", error);
         postsContainer.innerHTML = '<p>Sorry, there was an error loading the posts.</p>';
