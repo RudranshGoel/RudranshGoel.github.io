@@ -1,5 +1,3 @@
-# title 
-this is the second motherfucking post being automatically published
 ---
 title: "Another Cool Topic About Code"
 date: "2023-10-27"
