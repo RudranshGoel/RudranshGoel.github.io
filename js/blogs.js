@@ -58,17 +58,15 @@ async function loadPosts() {
         posts.forEach(post => {
             // Check if the post was loaded successfully (not null)
             if (post) {
-                const postElement = document.createElement('div');
-                postElement.classList.add('post-item');
-                postElement.innerHTML = `
-                <div class="post-content">
-                    <div class="post-item-header">
-                        <a href="${post.postLink}" class="title-link">${post.title}</a>
+                const article = document.createElement('article');
+                article.classList.add('post');
+                article.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <div class="post-content">
+                        ${post.html}
                     </div>
-                    <p class="preview-text">${post.html}</p>
-                </div>
                 `;
-                postsContainer.appendChild(postElement);
+                postsContainer.appendChild(article);
             }
         });
 
