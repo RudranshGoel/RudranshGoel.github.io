@@ -1,0 +1,48 @@
+# .github/workflows/deploy.yml
+
+name: Deploy Website to Pages
+
+# Trigger this workflow on every push to the experiment branch
+on:
+  push:
+    branches:
+      - experiment
+
+# Grant permissions for the workflow to deploy to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent overlapping deployments
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # Step 1: Check out the code from the experiment branch
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Step 2: Set up the GitHub Pages configuration
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # Step 3: Upload all files from the root as a Pages artifact
+      # This is the "build" step, but we are just making a zip of the repo
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.' # Upload the entire directory
+
+      # Step 4: Deploy the artifact to GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
