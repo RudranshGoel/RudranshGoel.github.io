@@ -30,7 +30,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18' # Use a recent, stable version of Node.js
-          cache: 'npm' # Optional: Caches npm dependencies for faster runs
 
       # Step 3: Run the post generator script
       # This will modify the posts.json file in the workflow's workspace
