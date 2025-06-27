@@ -1,6 +1,0 @@
-# Ignore the Node.js modules folder, which can be large
-node_modules/
-
-# Ignore files specific to some operating systems
-.DS_Store
-Thumbs.db
