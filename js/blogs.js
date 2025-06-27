@@ -9,7 +9,7 @@ async function loadPosts() {
         if (!response.ok) {
             throw new Error(`Failed to load posts.json: ${response.status} ${response.statusText}`);
         }
-        const postFiles = await response.json();
+        const postFiles = await response.json(); // This will be an array of strings like ["post.md", "post2.md"]
 
         // Clear the "Loading..." message
         postsContainer.innerHTML = '';
@@ -19,62 +19,58 @@ async function loadPosts() {
             return;
         }
 
-        // 2. Create an array of promises, one for each post
-        const postPromises = postFiles.map(async (postFile) => {
+        // 2. Loop through each filename in the array
+        for (const postFile of postFiles) {
             try {
+                // Fetch the content of the markdown file
                 const postResponse = await fetch(`posts/${postFile}`);
                 if (!postResponse.ok) {
-                    // Log an error for the specific file that failed
+                    // Log an error for the specific file that failed and continue
                     console.error(`Failed to fetch ${postFile}: ${postResponse.status}`);
-                    // Return null so we can filter it out later
-                    return null;
+                    continue; // Skip to the next post
                 }
                 const markdownText = await postResponse.text();
+
+                // Convert markdown to HTML using the 'marked' library
+                const postHtml = marked.parse(markdownText);
                 
+                // Create a new article element to hold the post
+                const article = document.createElement('article');
+                article.classList.add('post');
+
                 // Create a title from the filename
+                // e.g., "test-post.md" becomes "Test Post"
                 const title = postFile
                     .replace('.md', '')
                     .replace(/-/g, ' ')
                     .replace(/\b\w/g, char => char.toUpperCase());
 
-                // Convert markdown to HTML using the 'marked' library
-                const contentHtml = marked.parse(markdownText);
-
-                // Return a structured object for this post
-                return {
-                    title: title,
-                    html: contentHtml
-                };
-            } catch (error) {
-                console.error(`Error processing file ${postFile}:`, error);
-                return null; // Return null on error
-            }
-        });
-
-        // 3. Wait for all the fetch promises to resolve
-        const posts = await Promise.all(postPromises);
-
-        // 4. Loop through the resolved posts and render them
-        posts.forEach(post => {
-            // Check if the post was loaded successfully (not null)
-            if (post) {
-                const article = document.createElement('article');
-                article.classList.add('post');
+                // Populate the article element with the generated title and content
                 article.innerHTML = `
-                    <h2>${post.title}</h2>
+                    <h2>${title}</h2>
                     <div class="post-content">
-                        ${post.html}
+                        ${postHtml}
                     </div>
                 `;
-                postsContainer.appendChild(article);
-            }
-        });
 
+                // 3. Append the new article to the container
+                postsContainer.appendChild(article);
+            } catch (error) {
+                console.error(`Error processing file ${postFile}:`, error);
+                // Continue to the next post even if one fails
+            }
+        }
     } catch (error) {
         console.error("Could not load posts:", error);
         postsContainer.innerHTML = '<p>Sorry, there was an error loading the posts.</p>';
     }
 }
 
-// Initial call to load the posts when the page loads
-loadPosts();
+// Ensure the marked library is loaded before we run our script
+// We check if 'marked' is available. If not, we wait for the DOM to be fully loaded.
+if (typeof marked === 'undefined') {
+    console.warn("Marked.js library not found immediately. Waiting for DOMContentLoaded.");
+    document.addEventListener('DOMContentLoaded', loadPosts);
+} else {
+    loadPosts();
+}
