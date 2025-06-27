@@ -4,49 +4,47 @@ const postsContainer = document.getElementById('posts-container');
 // This is an async function to allow us to use 'await'
 async function loadPosts() {
     try {
-        // 1. Fetch the list of post filenames from our generated JSON file
+        // 1. Fetch the list of post METADATA from our generated JSON file.
+        // This file is now pre-sorted by date from our build script.
         const response = await fetch('posts.json');
         if (!response.ok) {
             throw new Error(`Failed to load posts.json: ${response.status} ${response.statusText}`);
         }
-        const postFiles = await response.json();
+        const postsMetadata = await response.json();
 
         // Clear the "Loading..." message
         postsContainer.innerHTML = '';
 
-        if (postFiles.length === 0) {
+        if (postsMetadata.length === 0) {
             postsContainer.innerHTML = '<p>No posts found.</p>';
             return;
         }
 
-        // 2. Create an array of promises, one for each post
-        const postPromises = postFiles.map(async (postFile) => {
+        // 2. Create an array of promises to fetch the content for each post
+        const postPromises = postsMetadata.map(async (meta) => {
             try {
-                const postResponse = await fetch(`posts/${postFile}`);
+                const postResponse = await fetch(`posts/${meta.filename}`);
                 if (!postResponse.ok) {
-                    // Log an error for the specific file that failed
-                    console.error(`Failed to fetch ${postFile}: ${postResponse.status}`);
-                    // Return null so we can filter it out later
-                    return null;
+                    console.error(`Failed to fetch ${meta.filename}: ${postResponse.status}`);
+                    return null; // Skip this post on error
                 }
-                const markdownText = await postResponse.text();
+                let markdownText = await postResponse.text();
                 
-                // Create a title from the filename
-                const title = postFile
-                    .replace('.md', '')
-                    .replace(/-/g, ' ')
-                    .replace(/\b\w/g, char => char.toUpperCase());
+                // IMPORTANT: Strip the front matter from the markdown before rendering
+                // so it doesn't appear in the post's preview.
+                const contentWithoutFrontMatter = markdownText.replace(/^---\s*([\s\S]*?)\s*---\s*/, '');
 
-                // Convert markdown to HTML using the 'marked' library
-                const contentHtml = marked.parse(markdownText);
+                // Convert the remaining markdown to HTML
+                const contentHtml = marked.parse(contentWithoutFrontMatter);
 
-                // Return a structured object for this post
+                // Return a structured object for this post using data from the metadata
                 return {
-                    title: title,
-                    html: contentHtml
+                    title: meta.title, // Use the title from front matter
+                    html: contentHtml,
+                    postLink: `#${meta.filename.replace('.md', '')}` // Example link
                 };
             } catch (error) {
-                console.error(`Error processing file ${postFile}:`, error);
+                console.error(`Error processing file ${meta.filename}:`, error);
                 return null; // Return null on error
             }
         });
@@ -54,10 +52,10 @@ async function loadPosts() {
         // 3. Wait for all the fetch promises to resolve
         const posts = await Promise.all(postPromises);
 
-        // 4. Loop through the resolved posts and render them
+        // 4. Loop through the resolved posts and render them.
+        // They are already in the correct (reverse chronological) order.
         posts.forEach(post => {
-            // Check if the post was loaded successfully (not null)
-            if (post) {
+            if (post) { // Check if the post was loaded successfully
                 const postElement = document.createElement('div');
                 postElement.classList.add('post-item');
                 postElement.innerHTML = `

@@ -1,11 +1,12 @@
 [
-  "post.md",
-  "post2.md",
-  "post3.md",
-  "test-post.md",
-  "test-post2.md",
-  "zposr3.md",
-  "zpost.md",
-  "zpost4.md",
-  "zzzzzz.md"
+  {
+    "filename": "two.md",
+    "title": "This is the second Post",
+    "date": "2023-10-28"
+  },
+  {
+    "filename": "one.md",
+    "title": "This is a Test Post",
+    "date": "2023-10-27"
+  }
 ]
