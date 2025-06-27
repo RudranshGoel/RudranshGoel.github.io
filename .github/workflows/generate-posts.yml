@@ -36,11 +36,13 @@ jobs:
       - name: Run Post Generator
         run: node generate-posts-list.js
 
+
       # Step 4: Use a pre-built action to automatically commit and push the changes
-      # This action checks if there are any changes and only commits if posts.json was modified.
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
+          # Use the PAT to ensure the push triggers subsequent workflows
+          token: ${{ secrets.post_deploy_token }}
           commit_message: 'chore: Auto-generate posts.json'
           commit_user_name: GitHub Actions Bot
           commit_user_email: actions@github.com
