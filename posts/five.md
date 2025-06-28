@@ -1,4 +1,4 @@
 ---
-topic : new blog
+title : new blog
 date : 2025-06-28
 ---
