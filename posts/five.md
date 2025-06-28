@@ -1,4 +1,4 @@
 ---
-title : "new blog"
-date : "2025-06-28"
+title: new blogg
+date: "2025-06-28"
 ---
