@@ -52,16 +52,21 @@ async function loadPosts() {
         // 3. Wait for all the fetch promises to resolve
         const posts = await Promise.all(postPromises);
 
-        // 4. Loop through the resolved posts and render them.
-        // They are already in the correct (reverse chronological) order.
-        posts.forEach(post => {
+        // 4. Loop through the metadata and the resolved posts to render them.
+        //    This is the corrected section.
+        postsMetadata.forEach((meta, index) => {
+            const post = posts[index]; // Get the corresponding fetched post content
             if (post) { // Check if the post was loaded successfully
                 const postElement = document.createElement('div');
                 postElement.classList.add('post-item');
+
+                // FIX IS HERE: We use 'meta.filename' to build the correct link
+                const fileNameWithoutExt = meta.filename.replace('.md', '');
+
                 postElement.innerHTML = `
                 <div class="post-content">
                     <div class="post-item-header">
-                        <a href="blog.html?post=${fileName}">${post.title}</a>
+                        <a href="blog.html?post=${fileNameWithoutExt}">${post.title}</a>
                     </div>
                     <p class="preview-text">${post.html}</p>
                 </div>

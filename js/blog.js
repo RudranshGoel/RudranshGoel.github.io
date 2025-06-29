@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Get the blog file name from the URL query parameter (e.g., ?post=new-blog)
     const params = new URLSearchParams(window.location.search);
     const blogFile = params.get('post');
 
-    // Find the elements where we will display the content
     const blogTitleContainer = document.getElementById('blog-title');
     const blogContentContainer = document.getElementById('blog-content');
     const pageTitle = document.querySelector('title');
@@ -13,10 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // 2. Construct the path to the markdown file
-    const blogPath = `../posts/${blogFile}.md`;
+    // FIX #1: Corrected the path. Removed the '../'
+    const blogPath = `posts/${blogFile}.md`;
 
-    // 3. Fetch the markdown file content
     fetch(blogPath)
         .then(response => {
             if (!response.ok) {
@@ -25,18 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.text();
         })
         .then(markdown => {
-            // 4. Separate the title from the rest of the content
-            // We'll assume the first line of the .md file is the title
-            const lines = markdown.split('\n');
-            const title = lines.shift(); 
+            // FIX #2: Handle front matter before splitting content
+            const contentWithoutFrontMatter = markdown.replace(/^---\s*([\s\S]*?)\s*---\s*/, '');
+
+            const lines = contentWithoutFrontMatter.trim().split('\n');
+            const title = lines.shift(); // Now this correctly gets the first line AFTER the front matter
             const content = lines.join('\n');
 
-            // 5. Convert Markdown to HTML using the 'marked' library and display it
             blogTitleContainer.innerHTML = marked.parse(title);
             blogContentContainer.innerHTML = marked.parse(content);
             
-            // Optional: Set the browser tab title to the blog's title
-            pageTitle.textContent = title.replace(/<[^>]*>?/gm, '').replace('#',''); 
+            pageTitle.textContent = title.replace(/<[^>]*>?/gm, '').replace('#','').trim(); 
         })
         .catch(error => {
             console.error('Error fetching or parsing blog:', error);
