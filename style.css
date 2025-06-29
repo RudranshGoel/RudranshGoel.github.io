@@ -4,8 +4,8 @@ body {
     margin: 0;
     
     /* --- NEW BACKGROUND STYLES --- */
-    background-color: #1a1a1d; /* Fallback color if the image fails to load */
-    background-image: url('images/Texture.jpg'); 
+    background-color: #c084fc; /* Fallback color if the image fails to load */
+    background-image: url('images/buried.png'); 
     background-size: 90% 100%; /* Scales the image to cover the entire screen */
     background-attachment: fixed; /* The background stays in place when scrolling */
     background-position: center; /* Centers the image */
