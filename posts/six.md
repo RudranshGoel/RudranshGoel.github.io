@@ -1,5 +1,5 @@
 ---
-title: "Sample post" 
+title: "Sixth post" 
 date: "2025-06-29"
 ---
 # Lorem Ipsum 
