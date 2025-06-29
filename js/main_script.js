@@ -1,67 +1,56 @@
-// Wait for the page to load before running the script
-document.addEventListener('DOMContentLoaded', function() {
+// js/main_script.js - DYNAMIC HOMEPAGE SCRIPT
 
-    // --- YOUR CONTENT GOES HERE ---
-    // This is an array of all your posts.
-    // To add a new post, just copy one of the blocks and change the details.
-    const posts = [
-        {
-            title: "My First Blog Post",
-            sectionName: "Blogs",
-            sectionLink: "blogs.html", // Link to the section page
-            postLink: "blogs.html#post1", // A link to the specific post (using an anchor)
-            preview: "This is a preview of my very first blog post where I talk about setting up this website...",
-            image: "images/latest-post-image.jpg" // Path to image, or leave as "" for no image
-        },
-        {
-            title: "Summer Internship Experience",
-            sectionName: "Memoirs",
-            sectionLink: "memoirs.html",
-            postLink: "memoirs.html#summer-intern",
-            preview: "I spent the summer working as a software developer intern. Here are my key takeaways...",
-            image: "" // No image for this one
-        },
-        {
-            title: "New Goal: Learn Python",
-            sectionName: "Career",
-            sectionLink: "career.html",
-            postLink: "career.html#python-goal",
-            preview: "I've decided to start learning Python for data science. I'll be tracking my progress here.",
-            image: ""
-        }
-    ];
-
-    // --- THE CODE THAT BUILDS THE PAGE ---
-    // (You don't need to change anything below this line)
+async function loadLatestPosts() {
     const latestContainer = document.getElementById('latest-container');
+    if (!latestContainer) return;
 
-    if (latestContainer) {
-        // Clear the container first
-        latestContainer.innerHTML = '';
+    try {
+        const response = await fetch('all_posts.json');
+        if (!response.ok) {
+            throw new Error(`Failed to load all_posts.json: ${response.statusText}`);
+        }
+        const allPosts = await response.json();
 
-        // Loop through each post and create the HTML for it
-        posts.forEach(post => {
+        // Take the 3 most recent posts from the sorted list.
+        const postsToShow = allPosts.slice(0, 3);
+
+        latestContainer.innerHTML = ''; // Clear any fallback content
+
+        if (postsToShow.length === 0) {
+            latestContainer.innerHTML = '<p>No posts available yet. Check back soon!</p>';
+            return;
+        }
+
+        postsToShow.forEach(post => {
             const postElement = document.createElement('div');
             postElement.classList.add('latest-item');
-
-            // Conditionally add the image part only if an image URL is provided
-            const imageHtml = post.image 
-                ? `<div class="latest-item-image"><img src="${post.image}" alt="${post.title}"></div>` 
-                : '';
+            
+            const fileNameWithoutExt = post.filename.replace('.md', '');
+            const postLink = `blog.html?post=${fileNameWithoutExt}`;
+            
+            // Note: The 'image' property is not included by default.
+            // To use it, add `image: "path/to/image.jpg"` to your markdown front matter
+            // and ensure `generate-posts-list.js` passes it to the JSON file.
 
             postElement.innerHTML = `
                 <div class="latest-content">
                     <div class="latest-item-header">
-                        <a href="${post.postLink}" class="title-link">${post.title}</a>
+                        <a href="${postLink}" class="title-link">${post.title}</a>
                         •
                         <a href="${post.sectionLink}" class="section-link">(${post.sectionName})</a>
                     </div>
                     <p class="preview-text">${post.preview}</p>
                 </div>
-                ${imageHtml}
             `;
             
             latestContainer.appendChild(postElement);
         });
+
+    } catch (error) {
+        console.error("Could not load latest posts for homepage:", error);
+        latestContainer.innerHTML = '<p>Sorry, could not load the latest updates.</p>';
     }
-});
+}
+
+// Wait for the page to load before running the script
+document.addEventListener('DOMContentLoaded', loadLatestPosts);

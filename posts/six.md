@@ -1,6 +1,7 @@
 ---
 title: "Sixth post" 
 date: "2025-06-29"
+section: career
 ---
 # Lorem Ipsum 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras hendrerit euismod lectus id placerat. Nulla sapien arcu, porttitor vel tellus a, aliquam dapibus metus. Nunc ultricies finibus sapien, facilisis malesuada mi finibus eget. Nunc ornare ultricies justo. Etiam congue commodo neque, ut sodales nisl fermentum vel. Aenean eu ante ac orci porta tincidunt at quis orci. Praesent nec nulla id dui venenatis ornare eget a ipsum. Aenean rhoncus eros nec lectus tristique feugiat. Curabitur interdum cursus ex. Proin vitae libero erat. Maecenas finibus laoreet diam, non vestibulum velit molestie eu. Sed pharetra nulla ac maximus aliquam. Nunc tempus, orci eget semper laoreet, erat elit semper felis, at imperdiet elit nisi vel tellus.

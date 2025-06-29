@@ -1,42 +1,36 @@
-<!-- Example for blogs.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Life</title>
+    <title>My Memoirs</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/favicon.ico" type="favicon">
 </head>
 <body>
-
-
-    <!-- A new, simpler navigation header for internal pages -->
     <header class="page-header">
         <nav class="simple-nav">
             <a href="index.html" class="simple-nav-button">Home</a>
             <a href="blogs_page.html" class="simple-nav-button">Blogs</a>
-            <a href="memoirs.html" class="simple-nav-button">Memoirs</a>
             <a href="pastimes.html" class="simple-nav-button">Pastimes</a>
+            <a href="memoirs.html" class="simple-nav-button">Memoirs</a>
         </nav>
     </header>
 
     <main>
-        <!-- Page specific content goes here -->
-        <h1>My Projects</h1>
-        <p>This is where I'll write my blog posts.</p>
+        <h1 class="page-heading">Career</h1>
+        <p class="main-content-text">A collection of personal stories and experiences.</p>
         
-        <!-- Example of how a post might look on this page -->
-        <article id="post1" class="latest-item">
-            <h2>My First Blog Post</h2>
-            <p>This is the full content of the blog post. It can be as long as you want!</p>
-        </article>
-
+        <!-- IMPORTANT: Set the data-category to "memoirs" -->
+        <section id="posts-container" class="post-section" data-category="memoirs">
+            Loading posts...
+        </section>
     </main>
 
-    <footer>
-        —
-    </footer>
+    <footer>—</footer>
+    
+    <!-- Use the same reusable script -->
+    <script src="js/category_page.js"></script>
 
 </body>
 </html>

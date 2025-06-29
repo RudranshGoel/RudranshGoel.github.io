@@ -1,6 +1,7 @@
 ---
 title: "Second post"
 date: "2025-06-02"
+section: pastimes
 ---
 
 # My First Section

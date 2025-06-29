@@ -1,6 +1,7 @@
 ---
 title: "First post"
 date: "2025-06-01"
+section: career
 ---
 
 # My First Section

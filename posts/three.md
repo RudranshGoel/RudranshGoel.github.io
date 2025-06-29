@@ -1,6 +1,7 @@
 ---
 title: "This is a Test Post"
 date: "2025-06-03"
+section: blogs
 ---
 
 # Loud title 

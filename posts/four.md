@@ -1,6 +1,7 @@
 ---
 title: 'Fourth post' 
 date: '2025-06-04' 
+section: memoirs
 ---
 please appear at the top for god's sake
 

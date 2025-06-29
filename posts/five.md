@@ -1,6 +1,7 @@
 ---
 title: Fifth post
 date: "2025-06-28"
+section: blogs
 ---
 
 # Title 
