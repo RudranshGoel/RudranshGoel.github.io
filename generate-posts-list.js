@@ -1,12 +1,12 @@
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter'); // We'll use this to get the content easily
+const matter = require('gray-matter');
 
 const postsDirectory = path.join(__dirname, 'posts');
 const outputPath = path.join(__dirname, 'posts.json');
 
 function generatePostList() {
-    console.log('Generating post list with previews...');
+    console.log('Generating post list with 30-word previews...');
     const files = fs.readdirSync(postsDirectory);
 
     const postsData = files
@@ -15,7 +15,6 @@ function generatePostList() {
             const filePath = path.join(postsDirectory, file);
             const fileContent = fs.readFileSync(filePath, 'utf8');
             
-            // gray-matter beautifully separates front matter (data) from the rest (content)
             const { data, content } = matter(fileContent);
 
             if (!data.date || !data.title) {
@@ -23,22 +22,28 @@ function generatePostList() {
                 return null;
             }
 
-            // --- START OF NEW PREVIEW LOGIC ---
-            const previewText = content
-                .replace(/^#\s.*$/m, '') // Remove the main H1 title from the content
-                .trim() // Remove leading/trailing whitespace
-                .split('\n') // Split the content into lines
-                .filter(line => line.length > 0) // Filter out any empty lines
-                .slice(0, 2) // Take the first 2 non-empty lines
-                .join(' ') // Join them together with a space
-                + '...'; // Add an ellipsis at the end
-            // --- END OF NEW PREVIEW LOGIC ---
+            // --- START OF NEW "BY WORD" PREVIEW LOGIC ---
+            // 1. Clean up the markdown content to get something closer to plain text.
+            const plainText = content
+                .replace(/^#\s.*$/m, '') // Remove H1 title
+                .replace(/(\r\n|\n|\r)/gm, " ") // Replace newlines with spaces
+                .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // Keep only the text from links
+                .replace(/[#*_~`>]/g, "") // Remove common markdown symbols
+                .trim();
+
+            // 2. Split the plain text by spaces, take the first 30 words, and join them back.
+            const previewText = plainText
+                .split(/\s+/) // Split by one or more spaces (robust)
+                .slice(0, 30) // Take the first 30 elements (words)
+                .join(' ')    // Join them back with a single space
+                + '...';      // Add an ellipsis
+            // --- END OF NEW "BY WORD" PREVIEW LOGIC ---
 
             return {
                 filename: file,
                 title: data.title,
                 date: data.date,
-                preview: previewText // Add the new preview to our data object
+                preview: previewText // The preview is now based on word count
             };
         })
         .filter(post => post !== null);
