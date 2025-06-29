@@ -1,61 +1,46 @@
-/* ================================================= */
-/* === GLOBAL SETUP & NEW COLOR PALETTE         === */
-/* ================================================= */
-:root {
-    --color-background: #1a1a1d;
-    --color-base-purple: #3B0764;
-    --color-light-purple: #C084FC;
-    --color-hover-purple: # ;
-    
-    /* --- NEW ACCENT COLORS --- */
-    --color-primary-accent: #FFA726;  /* A vibrant Amber/Gold */
-    --color-secondary-accent: #4DB6AC; /* A complementary Teal */
-    --color-text-main: #EAEAEA;       /* A softer off-white for body text */
-    --color-text-subtle: #BDBDBD;     /* A light gray for dates/metadata */
-
-    /* --- GLASSMORPHISM COLORS --- */
-    --color-glass-bg: rgba(28, 27, 34, 0.6);      /* Semi-transparent background for cards */
-    --color-glass-border: rgba(234, 234, 234, 0.15); /* Subtle light border */
-}
-
 /* Basic Setup */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     
-    background-color: var(--color-background);
-    background-image: url('images/texture2.png');
-    background-size: cover; /* Changed to cover for better scaling */
-    background-attachment: fixed;
-    background-position: center;
+    /* --- NEW BACKGROUND STYLES --- */
+    background-color: #1a1a1d; /* Fallback color if the image fails to load */
+    background-image: url('images/Texture.jpg'); 
+    background-size: 90% 100%; /* Scales the image to cover the entire screen */
+    background-attachment: fixed; /* The background stays in place when scrolling */
+    background-position: center; /* Centers the image */
 
-    color: var(--color-text-main); /* Use our new off-white for all default text */
+    /* We will need to change the default text color now */
+    color: white; /* A light gray for all default text */
+
 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-/* ================================================= */
-/* === HOMEPAGE STYLES (HEADER, NAV)            === */
-/* ================================================= */
-
+/* Header and Profile Section */
 .main-header {
     position: relative;
     width: 100%;
-    margin-bottom: 150px;
+    margin-bottom: 150px; /* Space for the profile area to overlap */
 }
 
 .cover-photo {
-    background-image: url('images/Cover photo.jpg');
+    background-image: url('images/Cover\ photo.jpg');
     background-size: cover;
     background-position: center;
     height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    color: #666;
 }
 
 .profile-area {
     position: absolute;
-    bottom: -260px;
+    bottom: -260px; /* Pulls the section down */
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
@@ -68,47 +53,65 @@ body {
 }
 
 .profile-container {
+    /* --- CHANGES HERE --- */
     grid-column: 2 / 3;
     grid-row: 1 / 3; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 15px; /* Increased gap slightly */
 }
 
 .profile-picture {
+    /* --- CHANGE HERE --- */
+    /* Increased the width and height */
     position: relative; 
     top: -10px;
     z-index: -1;
     background-color: transparent;
-    background-image: url('images/Profile photo.png');
+    /* Uncomment the line below and replace with your image */
+    /* background-image: url('images/Profile\ photo.jpg'); */
+    background-image: url('images/Profile\ photo.png');
     background-size: cover;
     background-position: center;
     border-radius: 100%;
     width: 300px;
     height: 300px;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
 }
 
-/* Navigation Buttons on Homepage */
+/* Navigation Buttons */
 .nav-button {
     background-color: #1E1B2E; 
-    color: var(--color-light-purple);
+    color: #C084FC;
     text-decoration: none;
     padding: 15px 20px;
     border-radius: 8px;
-    border: 2px solid var(--color-base-purple);
+    border: 2px solid #3B0764;
     text-align: center;
     font-weight: bold;
-    transition: transform 0.2s ease-in-out, background-color 0.2s;
+    transition: transform 0.2s ease-in-out, background-color 0.2s; /* Smooth transition */
 }
 
 .nav-button:hover {
     transform: scale(1.1); 
-    background-color: var(--color-base-purple); 
-    color: var(--color-hover-purple);
+    background-color: #3B0764; 
+    color: #E9D5FF;
+}
+.outlined-text {
+  color: white;
+  text-shadow:
+    -1px -1px 0 #3B0764,
+     1px -1px 0 #3B0764,
+    -1px  1px 0 #3B0764,
+     1px  1px 0 #3B0764;
 }
 
+/* Placing the nav buttons in the grid */
 .nav-blogs { grid-column: 1 / 2; grid-row: 1 / 2; align-self: end; }
 .nav-memoirs { grid-column: 1 / 2; grid-row: 2 / 3; align-self: start; }
 .nav-pastimes { grid-column: 3 / 4; grid-row: 1 / 2; align-self: end; }
@@ -117,19 +120,20 @@ body {
     position:relative;
     bottom: 80px;
     border: none;
-    background-color: transparent;
-    color: var(--color-light-purple);
-    padding: 13px 20px;
+  background-color: transparent;
+  color: #C084FC;
+  padding: 13px 20px;
 }
+
 .nav-about:hover {
-    background-color: var(--color-base-purple); 
-    color: var(--color-hover-purple);
+    background-color: #3B0764; 
+    color: #E9D5FF;
+}
+.nav-about { 
+    width: 80%;
 }
 
-/* ================================================= */
-/* === MAIN CONTENT & POST STYLES (THE BIG CHANGE) === */
-/* ================================================= */
-
+/* Latest Section */
 main {
     padding: 20px;
     width: 80%;
@@ -137,156 +141,319 @@ main {
     flex-grow: 1;
 }
 
-.latest-section h2, .page-heading {
-    font-size: 2.5em; /* Make headings bigger */
-    font-weight: 700;
-    color: white; /* Pure white for main headings for max contrast */
-    border-bottom: 2px solid var(--color-base-purple);
-    padding-bottom: 15px;
-    margin-bottom: 40px; /* More space after headings */
+.latest-section h2 {
+    font-size: 2em;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: white;
 }
 
-/* --- NEW "GLASSMORPHISM" CARD STYLE FOR ALL POST ITEMS --- */
-.latest-item, .post-item {
-    background: var(--color-glass-bg);
-    border: 1px solid var(--color-glass-border);
-    border-radius: 12px; /* Softer, modern corners */
-    padding: 25px 30px;
-    margin-bottom: 25px;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
-    transition: transform 0.3s ease, border-color 0.3s ease;
+
+/* This part is redundant, might remove later */
+.latest-item {
+    background-color: #2D2A32;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
 }
 
-.latest-item:hover, .post-item:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 167, 38, 0.4); /* Glow with primary accent color on hover */
+.latest-content {
+    flex-grow: 1;
 }
 
-/* This is used on blogs page, etc. */
+.latest-item-header {
+    margin-bottom: 10px;
+}
+
+/* --- NEW SLIDING HIGHLIGHT STYLES FOR LINKS --- */
+
+.latest-item-header .title-link, .latest-item-header .section-link {
+    position: relative; /* Required for the pseudo-element positioning */
+    color: #C084FC;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 1; /* Ensures the text stays above the highlight */
+    transition: color 0.3s ease-in-out;
+}
+
+/* This creates the highlight itself */
+.latest-item-header .title-link::after, .latest-item-header .section-link::after {
+    content: '';
+    position: absolute;
+    z-index: -1; /* Places the highlight BEHIND the text */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #3B0764; /* The highlight color */
+    transform: scaleX(0); /* Initially, the highlight is hidden (0 width) */
+    transform-origin: left; /* Animation starts from the left */
+    transition: transform 0.3s ease-in-out; /* The smooth animation */
+}
+.latest-item-header .title-link:hover, .latest-item-header .section-link:hover {
+    color: #E9D5FF;
+}
+
+/* This triggers the animation on hover */
+.latest-item-header .title-link:hover::after, .latest-item-header .section-link:hover::after {
+    transform: scaleX(1); /* On hover, expand to full width */
+}
+
+/* Keep the font size rules */
+.latest-item-header .title-link {
+    font-size: 1.5em;
+}
+
+.latest-item-header .section-link {
+    font-size: 1em;
+    margin-left: 5px;
+}
+
+.latest-item .preview-text {
+    color: white;
+}
+
+.latest-item-image img {
+    /* --- CHANGES HERE --- */
+    max-width: 150px;
+    max-height: 150px;
+    object-fit: cover;
+    /* border: 1px solid #ccc; has been removed */
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        scale: 0.5;
+    }
+    45%, 55% {
+        opacity: 1;
+        scale: 1.2;
+    }
+    100% {
+        opacity: 0;
+        scale: 0.5;
+
+    }
+}
+
+/* This is used on blogs page */
 .post-section {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%; /* Give it a bit more width */
-    max-width: 800px;
+    width: 60%;
     text-align: center;
 }
+
 .post-item {
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: appear linear both;
+    animation-timeline: view();
+
 }
 
-/* --- UPDATED LINK AND TEXT STYLES --- */
-.latest-item-header, .post-item-header {
-    margin-bottom: 12px;
+.post-item-header {
+    margin-bottom: 10px;
 }
 
-/* Title Links - Use the Primary Accent Color */
-.title-link {
-    font-size: 1.7em;
+/* --- NEW SLIDING HIGHLIGHT STYLES FOR LINKS --- */
+
+.post-item-header .title-link{
+    position: relative; /* Required for the pseudo-element positioning */
+    color: #C084FC;
+    text-decoration: none;
     font-weight: bold;
-    color: var(--color-primary-accent); /* << NEW GOLD COLOR */
-    text-decoration: none;
-    transition: color 0.2s, text-shadow 0.2s;
-}
-.title-link:hover {
-    color: #ffc977; /* A lighter gold for hover */
-    text-shadow: 0 0 8px rgba(255, 167, 38, 0.5);
+    z-index: 1; /* Ensures the text stays above the highlight */
+    transition: color 0.3s ease-in-out;
 }
 
-/* Section Links (e.g., "(Career)") */
-.section-link {
-    font-size: 1.1em;
-    color: var(--color-light-purple); /* Keep this purple for consistency */
-    text-decoration: none;
-    transition: color 0.2s;
+/* This creates the highlight itself */
+.post-item-header .title-link::after{
+    content: '';
+    position: absolute;
+    z-index: -1; /* Places the highlight BEHIND the text */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #3B0764; /* The highlight color */
+    transform: scaleX(0); /* Initially, the highlight is hidden (0 width) */
+    transform-origin: left; /* Animation starts from the left */
+    transition: transform 0.3s ease-in-out; /* The smooth animation */
 }
-.section-link:hover {
-    color: var(--color-hover-purple);
-}
-
-/* Date Text - Use the Secondary Accent Color */
-.post-item-date {
-    color: var(--color-secondary-accent); /* << NEW TEAL COLOR */
-    font-size: 0.9em;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 15px;
+.post-item-header .title-link:hover {
+    color: #E9D5FF;
 }
 
-/* Preview Text */
-.preview-text {
-    color: var(--color-text-main);
-    line-height: 1.6;
-    font-size: 1.1em;
+/* This triggers the animation on hover */
+.post-item-header .title-link:hover::after {
+    transform: scaleX(1); /* On hover, expand to full width */
 }
 
-/* Spacing between title and category on homepage */
-.latest-item-header .title-link, .latest-item-header .section-link {
-    margin: 0 5px;
-}
-
-/* Remove animation from CSS for now, it can be distracting */
-@keyframes appear { /* This is the old animation you can remove or keep */
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+/* Keep the font size rules */
+.post-item-header .title-link {
+    font-size: 1.5em;
 }
 
 
+.post-item .preview-text {
+    color: white;
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .cover-photo{
+        display: none;
+    }
+
+    /* Make the header layout simpler and let it take up space naturally */
+    .main-header {
+        position: static; /* Remove absolute positioning */
+        margin-bottom: 20px; /* Reduce bottom margin */
+    }
+
+    /* Change the profile area from a complex grid to a simple column */
+    .profile-area {
+        position: static;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 20px; /* Add some space from the cover photo */
+        gap: 20px;
+    }
+        .profile-container {
+        order: -1; 
+    }
+
+    /* Reset the grid placement for the buttons so they flow naturally */
+    .nav-blogs, .nav-memoirs, .nav-pastimes, .nav-career, .profile-container {
+        grid-column: auto;
+        grid-row: auto;
+        align-self: auto;
+    }
+    .nav-about{
+        top: 2px;
+    }
+    
+    /* Make all nav buttons take up more width */
+    .nav-button {
+        width: 80%;
+        max-width: 300px;
+        margin: 0 auto; /* Center the buttons */
+    }
+
+    /* Reduce the profile picture size for smaller screens */
+    .profile-picture {
+        width: 250px;
+        height: 250px;
+        top: 0; /* Reset any vertical shift */
+    }
+
+    /* Stack the 'Latest' items vertically */
+    .latest-item {
+        flex-direction: column; /* Stack image below text */
+        text-align: center; /* Center align the text */
+    }
+
+    .latest-item-image {
+        margin-top: 15px; /* Add space between text and image */
+    }
+
+    /* Reduce font size for main headings on mobile */
+    .latest-section h2 {
+        font-size: 1.5em;
+    }
+}
 /* ================================================= */
-/* === SIMPLE INTERNAL PAGES (HEADER, ETC.)     === */
+/* === STYLES FOR SIMPLE INTERNAL PAGES (About, etc.) === */
 /* ================================================= */
 
+/* --- Simple Page Header --- */
 .page-header {
     padding: 30px 20px;
-    border-bottom: 2px solid var(--color-base-purple);
+    border-bottom: 2px solid #3B0764; /* A subtle separator */
 }
 
 .simple-nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
     gap: 15px;
 }
 
+
 .simple-nav-button {
-    color: var(--color-light-purple);
-    background-color: transparent; /* Make them ghost buttons */
-    border: 2px solid var(--color-base-purple);
+    color: #C084FC;
+    background-color: #1E1B2E;
+    border: 2px solid #3B0764;
     padding: 10px 25px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
-    transition: all 0.2s ease-in-out;
+    font-size: 1em;
+    transition: transform 0.2s ease-in-out, background-color 0.2s, color 0.2s;
 }
 
 .simple-nav-button:hover {
-    transform: scale(1.1);
-    background-color: var(--color-base-purple);
-    color: var(--color-hover-purple);
-    border-color: var(--color-light-purple);
+    transform: scale(1.2);
+    background-color: #3B0764;
+    color: #E9D5FF;
+}
+
+
+
+.page-heading {
+    font-size: 2em;
+    color: white;
+    margin-bottom: 15px;
 }
 
 .main-content-text {
     font-size: 1.1em;
     line-height: 1.7;
-    color: var(--color-text-subtle); /* Use subtle text color */
+    color: white; /* Light gray for easy reading */
     margin-bottom: 40px;
-    text-align: center;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-/* ================================================= */
-/* === INDIVIDUAL BLOG POST PAGE (blog.html)    === */
-/* ================================================= */
-/* (Keeping these styles as they are well-defined for a different context) */
+
+/* The horizontal line from your wireframe */
+.content-divider {
+    border: 0;
+    height: 2px;
+    background-color: #3B0764;
+    margin: 40px 0 20px 0;
+}
+
+
+/* Style for the quote text */
+.quote-text {
+    font-family: Georgia, serif; /* A classic font for quotes */
+    font-size: 2em;
+    font-style: italic;
+    text-align: left;
+    color: #C084FC; /* Using your theme's accent color */
+    padding: 0 0 0 10px;
+    border: none;
+}
+
+/* --- Styles for the Individual Blog Page (blog.html) --- */
+
+/* Apply the dark purple background to the blog page */
 .blog-page-body {
     background: linear-gradient(to bottom, #2c0044, #1a0029);
     color: #f0e6ff;
@@ -294,6 +461,8 @@ main {
     margin: 0;
     padding: 0;
 }
+
+/* The white navigation bar at the top */
 .blog-page-nav {
     display: flex;
     justify-content: space-between;
@@ -304,22 +473,35 @@ main {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid #ddd;
 }
+
+/* Styling for the new icon-based back button */
 .go-back-btn {
-    display: inline-flex;
+    display: inline-flex; /* Use flexbox to center the icon */
     align-items: center;
     justify-content: center;
-    padding: 8px;
-    border-radius: 50%;
-    color: #555;
-    transition: background-color 0.2s, color 0.2s;
-    text-decoration: none;
+    padding: 8px; /* Give it some space around the icon */
+    border-radius: 50%; /* Make it a perfect circle */
+    color: #555; /* This color is inherited by the SVG's stroke */
+    transition: background-color 0.2s, color 0.2s; /* Smooth transitions */
+    text-decoration: none; /* Remove underline */
 }
-.go-back-btn svg { width: 30px; height: 30px; }
+
+/* Style the SVG itself inside the button */
+.go-back-btn svg {
+    width: 30px;  /* Control icon size */
+    height: 30px;
+}
+
+/* On hover, change the background and icon color */
 .go-back-btn:hover {
-    background-color: #f0f0f0;
-    color: #8A2BE2;
+    background-color: #1a00291c; /* A light gray background on hover */
+    color: #8A2BE2; /* This changes the SVG stroke color to purple */
 }
-.jump-to-container { position: relative; }
+/* Container for the "Jump to" button and its dropdown */
+.jump-to-container {
+    position: relative;
+}
+
 .jump-to-btn {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
@@ -328,6 +510,7 @@ main {
     border-radius: 5px;
     font-weight: bold;
 }
+
 .jump-to-dropdown {
     display: none;
     position: absolute;
@@ -339,8 +522,13 @@ main {
     z-index: 1000;
     min-width: 150px;
     padding: 0.5rem 0;
+    list-style: none;
 }
-.jump-to-container:hover .jump-to-dropdown { display: block; }
+
+.jump-to-container:hover .jump-to-dropdown {
+    display: block;
+}
+
 .jump-to-dropdown a {
     display: block;
     padding: 0.75rem 1.5rem;
@@ -348,18 +536,25 @@ main {
     text-decoration: none;
     transition: background-color 0.2s;
 }
-.jump-to-dropdown a:hover { background-color: #f5f5f5; }
+
+.jump-to-dropdown a:hover {
+    background-color: #f5f5f5;
+}
+
+/* The main white box for the blog content */
 .blog-container {
     background-color: white;
-    color: #333;
+    color: #333; /* Dark text for readability */
     width: 90%;
     max-width: 800px;
-    margin: 40px auto;
+    margin: 40px auto; /* Creates the gap and centers it */
     padding: 40px 50px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
-.blog-container h1 {
+
+/* Different fonts for Title and Text */
+.blog-container h1 { /* Targeting the h1 tag created by marked.js */
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 2.8rem;
     color: #2c0044;
@@ -367,45 +562,24 @@ main {
     border-bottom: 2px solid #eee;
     padding-bottom: 15px;
 }
+
 #blog-content {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     font-size: 1.1rem;
     line-height: 1.7;
     color: #444;
 }
-#blog-content p { margin-bottom: 1.5em; }
+
+#blog-content p {
+    margin-bottom: 1.5em;
+}
+
 #blog-content code {
     background-color: #f4f4f4;
     padding: 2px 6px;
     border-radius: 4px;
     font-family: 'Courier New', Courier, monospace;
 }
-
-/* ================================================= */
-/* === RESPONSIVE STYLES (MOBILE)               === */
-/* ================================================= */
-@media (max-width: 768px) {
-    .cover-photo { display: none; }
-    .main-header { position: static; margin-bottom: 20px; }
-    .profile-area {
-        position: static;
-        transform: none;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding-top: 20px;
-        gap: 20px;
-    }
-    .profile-container { order: -1; }
-    .nav-blogs, .nav-memoirs, .nav-pastimes, .nav-career, .profile-container {
-        grid-column: auto;
-        grid-row: auto;
-        align-self: auto;
-    }
-    .nav-about { top: 2px; }
-    .nav-button { width: 80%; max-width: 300px; margin: 0 auto; }
-    .profile-picture { width: 200px; height: 200px; top: 0; } /* Smaller profile pic */
-    .latest-section h2, .page-heading { font-size: 2em; }
-    main { width: 90%; } /* More screen real-estate on mobile */
-    .post-section { width: 100%; }
+.post-item-date {
+    color: white;
 }
