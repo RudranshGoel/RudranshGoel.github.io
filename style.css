@@ -242,7 +242,7 @@ main {
     }
 }
 
-
+/* This is used on blogs page */
 .post-section {
     position: relative;
     left: 50%;
@@ -262,10 +262,6 @@ main {
     animation: appear linear both;
     animation-timeline: view();
 
-}
-
-.post-content {
-    flex-grow: 1;
 }
 
 .post-item-header {
@@ -460,7 +456,7 @@ main {
 
 /* Apply the dark purple background to the blog page */
 .blog-page-body {
-    background: linear-gradient(to bottom, #2c0044, #1a0029);
+    background: linear-gradient(to bottom, white, #1E1B2E);
     color: #f0e6ff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
