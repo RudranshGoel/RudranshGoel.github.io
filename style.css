@@ -254,7 +254,7 @@ main {
 .post-item {
     height: 130px;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
