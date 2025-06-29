@@ -29,25 +29,11 @@ async function loadPosts() {
             });
 
             postElement.innerHTML = `
-
-
-                <a href="blog.html?post=${fileNameWithoutExt}" class="post-card-link">
-                    <h3 class="post-title">${meta.title}</h3>
-                    <p class="post-date">${postDate}</p>
-                    <p class="preview-text">${meta.preview}</p>
-                </a>
-
-                <br>
-
-
-
-
                 <div class="post-item-header">
                     <a href="blog.html?post=${fileNameWithoutExt}" class="title-link">${meta.title}</a>
+                    <p class="post-item-date">${postDate}</p>
+                    <p class="preview-text">${meta.preview}</p>                    
                 </div>
-                <p class="post-item-date">${postDate}</p>
-                <p class="preview-text">${meta.preview}</p>
-
             `;
             postsContainer.appendChild(postElement);
         });
