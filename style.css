@@ -574,3 +574,6 @@ main {
     border-radius: 4px;
     font-family: 'Courier New', Courier, monospace;
 }
+.post-item-date {
+    color: white;
+}

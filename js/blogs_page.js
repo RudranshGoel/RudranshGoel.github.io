@@ -31,8 +31,8 @@ async function loadPosts() {
             postElement.innerHTML = `
                 <div class="post-item-header">
                     <a href="blog.html?post=${fileNameWithoutExt}" class="title-link">${meta.title}</a>
-                    <span class="post-item-date">${postDate}</span>
                 </div>
+                <p class="post-item-date">${postDate}</p>
             `;
             postsContainer.appendChild(postElement);
         });
