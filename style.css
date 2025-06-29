@@ -475,18 +475,29 @@ main {
     border-bottom: 1px solid #ddd;
 }
 
+/* Styling for the new icon-based back button */
 .go-back-btn {
-    color: #555;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: color 0.3s;
+    display: inline-flex; /* Use flexbox to center the icon */
+    align-items: center;
+    justify-content: center;
+    padding: 8px; /* Give it some space around the icon */
+    border-radius: 50%; /* Make it a perfect circle */
+    color: #555; /* This color is inherited by the SVG's stroke */
+    transition: background-color 0.2s, color 0.2s; /* Smooth transitions */
+    text-decoration: none; /* Remove underline */
 }
 
+/* Style the SVG itself inside the button */
+.go-back-btn svg {
+    width: 22px;  /* Control icon size */
+    height: 22px;
+}
+
+/* On hover, change the background and icon color */
 .go-back-btn:hover {
-    color: #8A2BE2; /* A nice purple for hover */
+    background-color: #f0f0f0; /* A light gray background on hover */
+    color: #8A2BE2; /* This changes the SVG stroke color to purple */
 }
-
 /* Container for the "Jump to" button and its dropdown */
 .jump-to-container {
     position: relative;
