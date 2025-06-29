@@ -27,7 +27,7 @@ body {
 }
 
 .cover-photo {
-    background-image: url('images/Cover\ photo.jpg');
+    background-image: url('images/Coverphoto.jpg');
     background-size: cover;
     background-position: center;
     height: 300px;
