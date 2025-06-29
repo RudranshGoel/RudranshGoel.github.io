@@ -66,7 +66,7 @@ async function loadPosts() {
                 postElement.innerHTML = `
                 <div class="post-content">
                     <div class="post-item-header">
-                        <a href="blog.html?post=${fileNameWithoutExt}">${post.title}</a>
+                        <a href="blog.html?post=${fileNameWithoutExt}" class="title-link">${post.title}</a>
                     </div>
                     <p class="preview-text">${post.html}</p>
                 </div>
