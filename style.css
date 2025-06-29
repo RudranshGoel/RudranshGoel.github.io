@@ -1,46 +1,53 @@
 /*
 ================================================
-=== "ROYAL INDIGO & LILAC" THEME ===
+=== YOUR WEBSITE'S COLOR PALETTE ===
 ================================================
-A more subtle and sophisticated purple theme that uses
-a dark, desaturated indigo base with soft lilac accents.
+You can easily change the look of your entire
+site by modifying the color values below.
+The 'c-' prefix stands for 'color'.
 */
 :root {
   /* --- Primary & Accent Colors --- */
-  --c-primary: #282A36;          /* Royal Indigo: The dark, desaturated base purple */
-  --c-accent: #BD93F9;           /* Soft Lilac: The primary accent for links and buttons */
-  --c-accent-light: #D8B6FF;     /* Lighter Lilac: For hover effects */
-  --c-accent-alt: #9F7AEA;        /* Deeper Lilac: For specific hovers (e.g., icons) */
+  --c-primary: #3B0764;          /* Deep purple for backgrounds, borders, highlights */
+  --c-accent: #C084FC;           /* Vibrant purple for links, buttons, quotes */
+  --c-accent-light: #E9D5FF;     /* Light purple for hover effects */
+  --c-accent-alt: #8A2BE2;        /* Alternative purple for specific hovers (e.g., icons) */
+
 
   /* --- Background Colors --- */
-  --c-bg-main: #282A36;              /* Main page background */
-  --c-bg-dark-element: #1E1F28;    /* Deeper Indigo: For distinct UI elements (buttons, headers) */
-  --c-bg-content-box: #44475A;    /* Purple Slate: For content cards */
-  --c-bg-light-translucent: rgba(255, 255, 255, 0.98); /* For the white nav bar on blog pages */
-  --c-bg-light-gray: #f3f4f6;          /* Light gray for some buttons/UI */
-  --c-bg-code-block: #e5e7eb;         /* Background for `code` snippets */
-  --c-bg-light-hover: #f9fafb;        /* A very light gray for hover on white elements */
+  --c-bg-main: #3B0764;              /* Main page background, same as primary */
+  --c-bg-dark-element: #1E1B2E;    /* Darker purple for UI elements like buttons */
+  --c-bg-content-box: #2D2A32;    /* Dark gray/purple for content cards */
+  --c-bg-light-translucent: rgba(255, 255, 255, 0.95); /* For the white nav bar on blog pages */
+  --c-bg-light-gray: #f0f0f0;        /* Light gray for some buttons/UI */
+  --c-bg-code-block: #f4f4f4;       /* Background for `code` snippets */
+  --c-bg-light-hover: #f5f5f5;      /* A very light gray for hover on white elements */
+
+
+  /* --- Blog Page Gradient --- */
+  --c-bg-blog-gradient-start: #2c0044;
+  --c-bg-blog-gradient-end: #1a0029;
 
 
   /* --- Text Colors --- */
-  --c-text-light: #F8F8F2;           /* Soft White: Main text on dark backgrounds */
-  --c-text-dark: #282A36;             /* Royal Indigo: Main text on light backgrounds */
-  --c-text-dark-soft: #44475A;        /* Purple Slate: Slightly lighter dark text */
-  --c-text-dark-muted: #6B7280;      /* Muted gray text */
-  --c-text-icon: #6272A4;            /* For icons */
+  --c-text-light: white;           /* Main text color on dark backgrounds */
+  --c-text-dark: #333;             /* Main text color on light backgrounds */
+  --c-text-dark-soft: #444;        /* Slightly lighter dark text */
+  --c-text-dark-muted: #666;      /* Muted gray text */
+  --c-text-icon: #555;            /* For icons */
 
 
   /* --- Borders & Dividers --- */
-  --c-border-light: #44475A;
-  --c-border-very-light: #e5e7eb;
-  --c-border-medium: #D1D5DB;
+  --c-border-light: #ddd;
+  --c-border-very-light: #eee;
+  --c-border-medium: #ccc;
 
 
   /* --- Shadows (using rgba for transparency) --- */
   --c-shadow-dark: rgba(0, 0, 0, 0.3);
   --c-shadow-medium: rgba(0, 0, 0, 0.2);
   --c-shadow-heavy: rgba(0, 0, 0, 0.5);
-  --c-shadow-translucent-hover: rgba(68, 71, 90, 0.1); /* For the circular back button hover */
+  --c-shadow-translucent-hover: #1a00291c; /* For the circular back button hover */
 }
 
 
@@ -51,7 +58,7 @@ body {
     
     /* --- NEW BACKGROUND STYLES --- */
     background-color: var(--c-bg-main); /* Fallback color if the image fails to load */
-    background-image: url('images/buried.png'); 
+    background-image: url('images/Texture.jpg'); 
     background-size: 90% 100%; /* Scales the image to cover the entire screen */
     background-attachment: fixed; /* The background stays in place when scrolling */
     background-position: center; /* Centers the image */
@@ -140,7 +147,7 @@ body {
 
 .nav-button:hover {
     transform: scale(1.1); 
-    background-color: var(--c-bg-content-box); 
+    background-color: var(--c-primary); 
     color: var(--c-accent-light);
 }
 .outlined-text {
@@ -161,13 +168,13 @@ body {
     position:relative;
     bottom: 80px;
     border: none;
-    background-color: transparent;
-    color: var(--c-accent);
-    padding: 13px 20px;
+  background-color: transparent;
+  color: var(--c-accent);
+  padding: 13px 20px;
 }
 
 .nav-about:hover {
-    background-color: var(--c-bg-dark-element); 
+    background-color: var(--c-primary); 
     color: var(--c-accent-light);
 }
 .nav-about { 
@@ -226,10 +233,10 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--c-bg-dark-element); /* The highlight color */
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease-in-out;
+    background-color: var(--c-primary); /* The highlight color */
+    transform: scaleX(0); /* Initially, the highlight is hidden (0 width) */
+    transform-origin: left; /* Animation starts from the left */
+    transition: transform 0.3s ease-in-out; /* The smooth animation */
 }
 .latest-item-header .title-link:hover, .latest-item-header .section-link:hover {
     color: var(--c-accent-light);
@@ -246,6 +253,7 @@ main {
     max-width: 150px;
     max-height: 150px;
     object-fit: cover;
+    /* border: 1px solid #ccc; has been removed */
 }
 
 @keyframes appear {
@@ -271,15 +279,11 @@ main {
     align-items: center;
     animation: appear linear both;
     animation-timeline: view();
+
 }
 
 .post-item-header {
     margin-bottom: 10px;
-    background-color: var(--c-bg-dark-element);
-    padding: 10px 15px;
-    border-radius: 6px;
-    display: inline-block;
-    max-width: 100%;
 }
 
 .post-item-header .title-link{
@@ -299,10 +303,10 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--c-bg-content-box);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease-in-out;
+    background-color: var(--c-primary); /* The highlight color */
+    transform: scaleX(0); /* Initially, the highlight is hidden (0 width) */
+    transform-origin: left; /* Animation starts from the left */
+    transition: transform 0.3s ease-in-out; /* The smooth animation */
 }
 .post-item-header .title-link:hover {
     color: var(--c-accent-light);
@@ -312,9 +316,19 @@ main {
     transform: scaleX(1);
 }
 
-.post-item-header .title-link { font-size: 1.5em; }
-.post-item .preview-text { color: var(--c-text-light); }
-.post-item-date { color: var(--c-text-light); }
+/* Keep the font size rules */
+.post-item-header .title-link {
+    font-size: 1.5em;
+}
+
+
+.post-item .preview-text {
+    color: var(--c-text-light);
+}
+
+.post-item-date {
+    color: var(--c-text-light);
+}
 
 
 @media (max-width: 768px) {
@@ -337,7 +351,7 @@ main {
 
 .page-header {
     padding: 30px 20px;
-    border-bottom: 2px solid var(--c-bg-dark-element);
+    border-bottom: 2px solid var(--c-primary); /* A subtle separator */
 }
 .simple-nav {
     display: flex;
@@ -359,7 +373,7 @@ main {
 }
 .simple-nav-button:hover {
     transform: scale(1.2);
-    background-color: var(--c-bg-content-box);
+    background-color: var(--c-primary);
     color: var(--c-accent-light);
 }
 
@@ -372,14 +386,14 @@ main {
 .main-content-text {
     font-size: 1.1em;
     line-height: 1.7;
-    color: var(--c-text-light); 
+    color: var(--c-text-light); /* Light gray for easy reading */
     margin-bottom: 40px;
 }
 
 .content-divider {
     border: 0;
     height: 2px;
-    background-color: var(--c-bg-content-box);
+    background-color: var(--c-primary);
     margin: 40px 0 20px 0;
 }
 
@@ -395,9 +409,10 @@ main {
 
 /* --- Styles for the Individual Blog Page (blog.html) --- */
 
+/* Apply the dark purple background to the blog page */
 .blog-page-body {
-    background-color: var(--c-bg-main);
-    color: var(--c-text-light);
+    background: linear-gradient(to bottom, var(--c-bg-blog-gradient-start), var(--c-bg-blog-gradient-end));
+    color: var(--c-accent-light);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
@@ -411,7 +426,7 @@ main {
     background-color: var(--c-bg-light-translucent);
     color: var(--c-text-dark);
     box-shadow: 0 2px 10px var(--c-shadow-dark);
-    border-bottom: 1px solid var(--c-border-medium);
+    border-bottom: 1px solid var(--c-border-light);
 }
 
 .go-back-btn {
@@ -429,8 +444,8 @@ main {
     height: 30px;
 }
 .go-back-btn:hover {
-    background-color: var(--c-shadow-translucent-hover);
-    color: var(--c-accent-alt);
+    background-color: var(--c-shadow-translucent-hover); /* A light gray background on hover */
+    color: var(--c-accent-alt); /* This changes the SVG stroke color to purple */
 }
 
 .jump-to-container { position: relative; }
@@ -441,7 +456,6 @@ main {
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    color: var(--c-text-dark);
 }
 
 .jump-to-dropdown {
@@ -449,7 +463,7 @@ main {
     position: absolute;
     right: 0;
     top: 100%;
-    background-color: white;
+    background-color: var(--c-text-light);
     box-shadow: 0 4px 12px var(--c-shadow-medium);
     border-radius: 5px;
     z-index: 1000;
@@ -468,8 +482,8 @@ main {
 .jump-to-dropdown a:hover { background-color: var(--c-bg-light-hover); }
 
 .blog-container {
-    background-color: white;
-    color: var(--c-text-dark);
+    background-color: var(--c-text-light);
+    color: var(--c-text-dark); /* Dark text for readability */
     width: 90%;
     max-width: 800px;
     margin: 40px auto;
@@ -481,7 +495,7 @@ main {
 .blog-container h1 {
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 2.8rem;
-    color: var(--c-text-dark);
+    color: var(--c-bg-blog-gradient-start);
     margin-top: 0;
     border-bottom: 2px solid var(--c-border-very-light);
     padding-bottom: 15px;
@@ -499,5 +513,4 @@ main {
     padding: 2px 6px;
     border-radius: 4px;
     font-family: 'Courier New', Courier, monospace;
-    color: var(--c-text-dark-soft);
 }
