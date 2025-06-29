@@ -1,0 +1,9 @@
+# Ignore Node.js modules
+node_modules/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore build artifacts
+posts.json

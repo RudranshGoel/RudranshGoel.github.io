@@ -1,85 +1,46 @@
-// Get the container where posts will be displayed
-const postsContainer = document.getElementById('posts-container');
+// js/blogs_page.js - EFFICIENT AND FIXED
 
-// This is an async function to allow us to use 'await'
 async function loadPosts() {
+    const postsContainer = document.getElementById('posts-container');
+    
     try {
-        // 1. Fetch the list of post METADATA from our generated JSON file.
-        // This file is now pre-sorted by date from our build script.
+        // Fetch the pre-sorted list of post metadata
         const response = await fetch('posts.json');
         if (!response.ok) {
-            throw new Error(`Failed to load posts.json: ${response.status} ${response.statusText}`);
+            throw new Error(`Failed to load posts.json: ${response.statusText}`);
         }
         const postsMetadata = await response.json();
 
-        // Clear the "Loading..." message
-        postsContainer.innerHTML = '';
+        postsContainer.innerHTML = ''; // Clear "Loading..."
 
         if (postsMetadata.length === 0) {
             postsContainer.innerHTML = '<p>No posts found.</p>';
             return;
         }
 
-        // 2. Create an array of promises to fetch the content for each post
-        const postPromises = postsMetadata.map(async (meta) => {
-            try {
-                const postResponse = await fetch(`posts/${meta.filename}`);
-                if (!postResponse.ok) {
-                    console.error(`Failed to fetch ${meta.filename}: ${postResponse.status}`);
-                    return null; // Skip this post on error
-                }
-                let markdownText = await postResponse.text();
-                
-                // IMPORTANT: Strip the front matter from the markdown before rendering
-                // so it doesn't appear in the post's preview.
-                const contentWithoutFrontMatter = markdownText.replace(/^---\s*([\s\S]*?)\s*---\s*/, '');
+        // Just loop through the metadata and create the links. No need to fetch content here!
+        postsMetadata.forEach(meta => {
+            const postElement = document.createElement('div');
+            postElement.classList.add('post-item');
 
-                // Convert the remaining markdown to HTML
-                const contentHtml = marked.parse(contentWithoutFrontMatter);
+            const fileNameWithoutExt = meta.filename.replace('.md', '');
+            const postDate = new Date(meta.date).toLocaleDateString('en-US', {
+                year: 'numeric', month: 'long', day: 'numeric'
+            });
 
-                // Return a structured object for this post using data from the metadata
-                return {
-                    title: meta.title, // Use the title from front matter
-                    html: contentHtml,
-                    postLink: `#${meta.filename.replace('.md', '')}` // Example link
-                };
-            } catch (error) {
-                console.error(`Error processing file ${meta.filename}:`, error);
-                return null; // Return null on error
-            }
-        });
-
-        // 3. Wait for all the fetch promises to resolve
-        const posts = await Promise.all(postPromises);
-
-        // 4. Loop through the metadata and the resolved posts to render them.
-        //    This is the corrected section.
-        postsMetadata.forEach((meta, index) => {
-            const post = posts[index]; // Get the corresponding fetched post content
-            if (post) { // Check if the post was loaded successfully
-                const postElement = document.createElement('div');
-                postElement.classList.add('post-item');
-
-                // FIX IS HERE: We use 'meta.filename' to build the correct link
-                const fileNameWithoutExt = meta.filename.replace('.md', '');
-
-                postElement.innerHTML = `
-                <div class="post-content">
-                    <div class="post-item-header">
-                        <a href="blog.html?post=${fileNameWithoutExt}" class="title-link">${post.title}</a>
-                    </div>
-                    <p class="preview-text">${post.html}</p>
+            postElement.innerHTML = `
+                <div class="post-item-header">
+                    <a href="blog.html?post=${fileNameWithoutExt}" class="title-link">${meta.title}</a>
+                    <span class="post-item-date">${postDate}</span>
                 </div>
-                `;
-                postsContainer.appendChild(postElement);
-            }
+            `;
+            postsContainer.appendChild(postElement);
         });
 
     } catch (error) {
-        console.error("Could not load posts:", error);
-        postsContainer.innerHTML = '<p>Sorry, there was an error loading the posts.</p>';
+        console.error("Could not load posts list:", error);
+        postsContainer.innerHTML = '<p>Sorry, there was an error loading the blog list.</p>';
     }
 }
 
-// Initial call to load the posts when the page loads
 loadPosts();

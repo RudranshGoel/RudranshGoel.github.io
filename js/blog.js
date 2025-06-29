@@ -1,41 +1,48 @@
+// js/blog.js - SIMPLIFIED AND FIXED
+
 document.addEventListener('DOMContentLoaded', () => {
     const params = new URLSearchParams(window.location.search);
-    const blogFile = params.get('post');
+    const postFileName = params.get('post'); // e.g., "first-post"
 
-    const blogTitleContainer = document.getElementById('blog-title');
     const blogContentContainer = document.getElementById('blog-content');
-    const pageTitle = document.querySelector('title');
+    const pageTitle = document.querySelector('title'); // To set the browser tab title
 
-    if (!blogFile) {
-        blogContentContainer.innerHTML = '<p>Error: Blog post not found. Please go back to the blogs list.</p>';
+    if (!postFileName) {
+        blogContentContainer.innerHTML = '<p>Error: Blog post not specified. Please go back.</p>';
         return;
     }
 
-    // FIX #1: Corrected the path. Removed the '../'
-    const blogPath = `posts/${blogFile}.md`;
+    // Construct the path to the markdown file
+    const blogPath = `posts/${postFileName}.md`;
 
     fetch(blogPath)
         .then(response => {
             if (!response.ok) {
+                // This will catch the 404 if the file doesn't exist
                 throw new Error('Network response was not ok');
             }
             return response.text();
         })
         .then(markdown => {
-            // FIX #2: Handle front matter before splitting content
+            // Use gray-matter's regex to reliably strip front matter
             const contentWithoutFrontMatter = markdown.replace(/^---\s*([\s\S]*?)\s*---\s*/, '');
-
-            const lines = contentWithoutFrontMatter.trim().split('\n');
-            const title = lines.shift(); // Now this correctly gets the first line AFTER the front matter
-            const content = lines.join('\n');
-
-            blogTitleContainer.innerHTML = marked.parse(title);
-            blogContentContainer.innerHTML = marked.parse(content);
             
-            pageTitle.textContent = title.replace(/<[^>]*>?/gm, '').replace('#','').trim(); 
+            // The title is now part of the markdown content itself.
+            // Let marked.js render the h1/h2 tags from your file.
+            blogContentContainer.innerHTML = marked.parse(contentWithoutFrontMatter);
+            
+            // Optional: Try to find the first heading to set the page title
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = blogContentContainer.innerHTML;
+            const firstHeading = tempDiv.querySelector('h1, h2, h3');
+            if (firstHeading) {
+                pageTitle.textContent = firstHeading.textContent;
+            } else {
+                pageTitle.textContent = "Blog Post";
+            }
         })
         .catch(error => {
-            console.error('Error fetching or parsing blog:', error);
-            blogContentContainer.innerHTML = `<p>Sorry, we couldn't load this blog. It might not exist. <a href="blogs.html">Go back</a>.</p>`;
+            console.error('Error fetching or parsing blog post:', error);
+            blogContentContainer.innerHTML = `<p>Sorry, we couldn't load this post. It might not exist. <a href="blogs_page.html">Go back</a>.</p>`;
         });
 });
