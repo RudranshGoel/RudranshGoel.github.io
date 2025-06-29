@@ -455,3 +455,122 @@ main {
     padding: 0 0 0 10px;
     border: none;
 }
+
+/* --- Styles for the Individual Blog Page (blog.html) --- */
+
+/* Apply the dark purple background to the blog page */
+.blog-page-body {
+    background: linear-gradient(to bottom, #2c0044, #1a0029);
+    color: #f0e6ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* The white navigation bar at the top */
+.blog-page-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid #ddd;
+}
+
+.go-back-btn {
+    color: #555;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.go-back-btn:hover {
+    color: #8A2BE2; /* A nice purple for hover */
+}
+
+/* Container for the "Jump to" button and its dropdown */
+.jump-to-container {
+    position: relative;
+}
+
+.jump-to-btn {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.jump-to-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1000;
+    min-width: 150px;
+    padding: 0.5rem 0;
+    list-style: none;
+}
+
+.jump-to-container:hover .jump-to-dropdown {
+    display: block;
+}
+
+.jump-to-dropdown a {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: #333;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.jump-to-dropdown a:hover {
+    background-color: #f5f5f5;
+}
+
+/* The main white box for the blog content */
+.blog-container {
+    background-color: white;
+    color: #333; /* Dark text for readability */
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto; /* Creates the gap and centers it */
+    padding: 40px 50px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Different fonts for Title and Text */
+#blog-title h1 { /* Targeting the h1 tag created by marked.js */
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 2.8rem;
+    color: #2c0044;
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+}
+
+#blog-content {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+#blog-content p {
+    margin-bottom: 1.5em;
+}
+
+#blog-content code {
+    background-color: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
