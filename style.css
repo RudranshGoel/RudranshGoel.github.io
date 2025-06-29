@@ -489,13 +489,13 @@ main {
 
 /* Style the SVG itself inside the button */
 .go-back-btn svg {
-    width: 22px;  /* Control icon size */
-    height: 22px;
+    width: 30px;  /* Control icon size */
+    height: 30px;
 }
 
 /* On hover, change the background and icon color */
 .go-back-btn:hover {
-    background-color: #f0f0f0; /* A light gray background on hover */
+    background-color: #1a00291c; /* A light gray background on hover */
     color: #8A2BE2; /* This changes the SVG stroke color to purple */
 }
 /* Container for the "Jump to" button and its dropdown */
