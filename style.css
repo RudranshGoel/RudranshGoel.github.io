@@ -1,21 +1,21 @@
 /*
 ================================================
-=== "SLATE & SPRUCE" THEME ===
+=== "ROYAL INDIGO & LILAC" THEME ===
 ================================================
-A subtle, clean, and modern color palette using
-cool slate grays and a calming spruce green accent.
+A more subtle and sophisticated purple theme that uses
+a dark, desaturated indigo base with soft lilac accents.
 */
 :root {
   /* --- Primary & Accent Colors --- */
-  --c-primary: #1F2937;            /* Dark Slate: For backgrounds and primary elements */
-  --c-accent: #34D399;             /* Spruce Green: For links, buttons, and highlights */
-  --c-accent-light: #6EE7B7;       /* Lighter Spruce: For hover effects */
-  --c-accent-alt: #10B981;          /* Deeper Spruce: For specific hovers */
+  --c-primary: #282A36;          /* Royal Indigo: The dark, desaturated base purple */
+  --c-accent: #BD93F9;           /* Soft Lilac: The primary accent for links and buttons */
+  --c-accent-light: #D8B6FF;     /* Lighter Lilac: For hover effects */
+  --c-accent-alt: #9F7AEA;        /* Deeper Lilac: For specific hovers (e.g., icons) */
 
   /* --- Background Colors --- */
-  --c-bg-main: #1F2937;                /* Main page background */
-  --c-bg-dark-element: #111827;      /* Deeper Slate: For distinct UI elements (buttons, headers) */
-  --c-bg-content-box: #374151;      /* Mid-Slate: For content cards */
+  --c-bg-main: #282A36;              /* Main page background */
+  --c-bg-dark-element: #1E1F28;    /* Deeper Indigo: For distinct UI elements (buttons, headers) */
+  --c-bg-content-box: #44475A;    /* Purple Slate: For content cards */
   --c-bg-light-translucent: rgba(255, 255, 255, 0.98); /* For the white nav bar on blog pages */
   --c-bg-light-gray: #f3f4f6;          /* Light gray for some buttons/UI */
   --c-bg-code-block: #e5e7eb;         /* Background for `code` snippets */
@@ -23,15 +23,15 @@ cool slate grays and a calming spruce green accent.
 
 
   /* --- Text Colors --- */
-  --c-text-light: #E5E7EB;           /* Soft White: Main text on dark backgrounds */
-  --c-text-dark: #1F2937;             /* Dark Slate: Main text on light backgrounds */
-  --c-text-dark-soft: #374151;        /* Mid-Slate: Slightly lighter dark text */
+  --c-text-light: #F8F8F2;           /* Soft White: Main text on dark backgrounds */
+  --c-text-dark: #282A36;             /* Royal Indigo: Main text on light backgrounds */
+  --c-text-dark-soft: #44475A;        /* Purple Slate: Slightly lighter dark text */
   --c-text-dark-muted: #6B7280;      /* Muted gray text */
-  --c-text-icon: #4B5563;            /* For icons */
+  --c-text-icon: #6272A4;            /* For icons */
 
 
   /* --- Borders & Dividers --- */
-  --c-border-light: #4B5563;          /* Darker gray for dividers on dark backgrounds */
+  --c-border-light: #44475A;
   --c-border-very-light: #e5e7eb;
   --c-border-medium: #D1D5DB;
 
@@ -40,7 +40,7 @@ cool slate grays and a calming spruce green accent.
   --c-shadow-dark: rgba(0, 0, 0, 0.3);
   --c-shadow-medium: rgba(0, 0, 0, 0.2);
   --c-shadow-heavy: rgba(0, 0, 0, 0.5);
-  --c-shadow-translucent-hover: rgba(55, 65, 81, 0.1); /* For the circular back button hover */
+  --c-shadow-translucent-hover: rgba(68, 71, 90, 0.1); /* For the circular back button hover */
 }
 
 
@@ -99,24 +99,19 @@ body {
 }
 
 .profile-container {
-    /* --- CHANGES HERE --- */
     grid-column: 2 / 3;
     grid-row: 1 / 3; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Increased gap slightly */
+    gap: 15px;
 }
 
 .profile-picture {
-    /* --- CHANGE HERE --- */
-    /* Increased the width and height */
     position: relative; 
     top: -10px;
     z-index: -1;
     background-color: transparent;
-    /* Uncomment the line below and replace with your image */
-    /* background-image: url('images/Profile\ photo.jpg'); */
     background-image: url('images/Profile\ photo.png');
     background-size: cover;
     background-position: center;
@@ -137,7 +132,7 @@ body {
     text-decoration: none;
     padding: 15px 20px;
     border-radius: 8px;
-    border: 2px solid var(--c-primary);
+    border: 2px solid var(--c-bg-main);
     text-align: center;
     font-weight: bold;
     transition: transform 0.2s ease-in-out, background-color 0.2s; /* Smooth transition */
@@ -151,10 +146,10 @@ body {
 .outlined-text {
   color: var(--c-text-light);
   text-shadow:
-    -1px -1px 0 var(--c-primary),
-     1px -1px 0 var(--c-primary),
-    -1px  1px 0 var(--c-primary),
-     1px  1px 0 var(--c-primary);
+    -1px -1px 0 var(--c-bg-main),
+     1px -1px 0 var(--c-bg-main),
+    -1px  1px 0 var(--c-bg-main),
+     1px  1px 0 var(--c-bg-main);
 }
 
 /* Placing the nav buttons in the grid */
@@ -195,8 +190,6 @@ main {
     color: var(--c-text-light);
 }
 
-
-/* This part is redundant, might remove later */
 .latest-item {
     background-color: var(--c-bg-content-box);
     border: 1px solid var(--c-border-light);
@@ -216,76 +209,49 @@ main {
     margin-bottom: 10px;
 }
 
-/* --- NEW SLIDING HIGHLIGHT STYLES FOR LINKS --- */
-
 .latest-item-header .title-link, .latest-item-header .section-link {
-    position: relative; /* Required for the pseudo-element positioning */
+    position: relative;
     color: var(--c-accent);
     text-decoration: none;
     font-weight: bold;
-    z-index: 1; /* Ensures the text stays above the highlight */
+    z-index: 1;
     transition: color 0.3s ease-in-out;
 }
 
-/* This creates the highlight itself */
 .latest-item-header .title-link::after, .latest-item-header .section-link::after {
     content: '';
     position: absolute;
-    z-index: -1; /* Places the highlight BEHIND the text */
+    z-index: -1;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     background-color: var(--c-bg-dark-element); /* The highlight color */
-    transform: scaleX(0); /* Initially, the highlight is hidden (0 width) */
-    transform-origin: left; /* Animation starts from the left */
-    transition: transform 0.3s ease-in-out; /* The smooth animation */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
 }
 .latest-item-header .title-link:hover, .latest-item-header .section-link:hover {
     color: var(--c-accent-light);
 }
 
-/* This triggers the animation on hover */
 .latest-item-header .title-link:hover::after, .latest-item-header .section-link:hover::after {
-    transform: scaleX(1); /* On hover, expand to full width */
+    transform: scaleX(1);
 }
 
-/* Keep the font size rules */
-.latest-item-header .title-link {
-    font-size: 1.5em;
-}
-
-.latest-item-header .section-link {
-    font-size: 1em;
-    margin-left: 5px;
-}
-
-.latest-item .preview-text {
-    color: var(--c-text-light);
-}
-
+.latest-item-header .title-link { font-size: 1.5em; }
+.latest-item-header .section-link { font-size: 1em; margin-left: 5px; }
+.latest-item .preview-text { color: var(--c-text-light); }
 .latest-item-image img {
-    /* --- CHANGES HERE --- */
     max-width: 150px;
     max-height: 150px;
     object-fit: cover;
-    /* border has been removed */
 }
 
 @keyframes appear {
-    0% {
-        opacity: 0;
-        scale: 0.5;
-    }
-    45%, 55% {
-        opacity: 1;
-        scale: 1.2;
-    }
-    100% {
-        opacity: 0;
-        scale: 0.5;
-
-    }
+    0% { opacity: 0; scale: 0.5; }
+    45%, 55% { opacity: 1; scale: 1.2; }
+    100% { opacity: 0; scale: 0.5; }
 }
 
 /* This is used on blogs page */
@@ -307,153 +273,83 @@ main {
     animation-timeline: view();
 }
 
-/* === MODIFIED POST ITEM HEADER (as requested) === */
 .post-item-header {
     margin-bottom: 10px;
-    background-color: var(--c-bg-dark-element); /* Adds a background */
-    padding: 10px 15px;      /* Adds some space around the text */
-    border-radius: 6px;       /* Rounds the corners slightly */
-    display: inline-block;    /* Makes the background wrap the content */
+    background-color: var(--c-bg-dark-element);
+    padding: 10px 15px;
+    border-radius: 6px;
+    display: inline-block;
     max-width: 100%;
 }
 
-/* --- NEW SLIDING HIGHLIGHT STYLES FOR LINKS --- */
-
 .post-item-header .title-link{
-    position: relative; /* Required for the pseudo-element positioning */
+    position: relative;
     color: var(--c-accent);
     text-decoration: none;
     font-weight: bold;
-    z-index: 1; /* Ensures the text stays above the highlight */
+    z-index: 1;
     transition: color 0.3s ease-in-out;
 }
 
-/* This creates the highlight itself */
 .post-item-header .title-link::after{
     content: '';
     position: absolute;
-    z-index: -1; /* Places the highlight BEHIND the text */
+    z-index: -1;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: var(--c-bg-content-box); /* The highlight color */
-    transform: scaleX(0); /* Initially, the highlight is hidden (0 width) */
-    transform-origin: left; /* Animation starts from the left */
-    transition: transform 0.3s ease-in-out; /* The smooth animation */
+    background-color: var(--c-bg-content-box);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
 }
 .post-item-header .title-link:hover {
     color: var(--c-accent-light);
 }
 
-/* This triggers the animation on hover */
 .post-item-header .title-link:hover::after {
-    transform: scaleX(1); /* On hover, expand to full width */
+    transform: scaleX(1);
 }
 
-/* Keep the font size rules */
-.post-item-header .title-link {
-    font-size: 1.5em;
-}
-
-
-.post-item .preview-text {
-    color: var(--c-text-light);
-}
-
-.post-item-date {
-    color: var(--c-text-light);
-}
-
+.post-item-header .title-link { font-size: 1.5em; }
+.post-item .preview-text { color: var(--c-text-light); }
+.post-item-date { color: var(--c-text-light); }
 
 
 @media (max-width: 768px) {
-    .cover-photo{
-        display: none;
-    }
-
-    /* Make the header layout simpler and let it take up space naturally */
-    .main-header {
-        position: static; /* Remove absolute positioning */
-        margin-bottom: 20px; /* Reduce bottom margin */
-    }
-
-    /* Change the profile area from a complex grid to a simple column */
-    .profile-area {
-        position: static;
-        transform: none;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding-top: 20px; /* Add some space from the cover photo */
-        gap: 20px;
-    }
-        .profile-container {
-        order: -1; 
-    }
-
-    /* Reset the grid placement for the buttons so they flow naturally */
-    .nav-blogs, .nav-memoirs, .nav-pastimes, .nav-career, .profile-container {
-        grid-column: auto;
-        grid-row: auto;
-        align-self: auto;
-    }
-    .nav-about{
-        top: 2px;
-    }
-    
-    /* Make all nav buttons take up more width */
-    .nav-button {
-        width: 80%;
-        max-width: 300px;
-        margin: 0 auto; /* Center the buttons */
-    }
-
-    /* Reduce the profile picture size for smaller screens */
-    .profile-picture {
-        width: 250px;
-        height: 250px;
-        top: 0; /* Reset any vertical shift */
-    }
-
-    /* Stack the 'Latest' items vertically */
-    .latest-item {
-        flex-direction: column; /* Stack image below text */
-        text-align: center; /* Center align the text */
-    }
-
-    .latest-item-image {
-        margin-top: 15px; /* Add space between text and image */
-    }
-
-    /* Reduce font size for main headings on mobile */
-    .latest-section h2 {
-        font-size: 1.5em;
-    }
+    .cover-photo { display: none; }
+    .main-header { position: static; margin-bottom: 20px; }
+    .profile-area { position: static; transform: none; display: flex; flex-direction: column; width: 100%; padding-top: 20px; gap: 20px; }
+    .profile-container { order: -1; }
+    .nav-blogs, .nav-memoirs, .nav-pastimes, .nav-career, .profile-container { grid-column: auto; grid-row: auto; align-self: auto; }
+    .nav-about { top: 2px; }
+    .nav-button { width: 80%; max-width: 300px; margin: 0 auto; }
+    .profile-picture { width: 250px; height: 250px; top: 0; }
+    .latest-item { flex-direction: column; text-align: center; }
+    .latest-item-image { margin-top: 15px; }
+    .latest-section h2 { font-size: 1.5em; }
 }
+
 /* ================================================= */
 /* === STYLES FOR SIMPLE INTERNAL PAGES (About, etc.) === */
 /* ================================================= */
 
-/* --- Simple Page Header --- */
 .page-header {
     padding: 30px 20px;
-    border-bottom: 2px solid var(--c-bg-dark-element); /* A subtle separator */
+    border-bottom: 2px solid var(--c-bg-dark-element);
 }
-
 .simple-nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+    flex-wrap: wrap;
     gap: 15px;
 }
-
-
 .simple-nav-button {
     color: var(--c-accent);
     background-color: var(--c-bg-dark-element);
-    border: 2px solid var(--c-primary);
+    border: 2px solid var(--c-bg-main);
     padding: 10px 25px;
     border-radius: 50px;
     text-decoration: none;
@@ -461,14 +357,11 @@ main {
     font-size: 1em;
     transition: transform 0.2s ease-in-out, background-color 0.2s, color 0.2s;
 }
-
 .simple-nav-button:hover {
     transform: scale(1.2);
     background-color: var(--c-bg-content-box);
     color: var(--c-accent-light);
 }
-
-
 
 .page-heading {
     font-size: 2em;
@@ -483,8 +376,6 @@ main {
     margin-bottom: 40px;
 }
 
-
-/* The horizontal line from your wireframe */
 .content-divider {
     border: 0;
     height: 2px;
@@ -492,21 +383,18 @@ main {
     margin: 40px 0 20px 0;
 }
 
-
-/* Style for the quote text */
 .quote-text {
-    font-family: Georgia, serif; /* A classic font for quotes */
+    font-family: Georgia, serif;
     font-size: 2em;
     font-style: italic;
     text-align: left;
-    color: var(--c-accent); /* Using your theme's accent color */
+    color: var(--c-accent);
     padding: 0 0 0 10px;
     border: none;
 }
 
 /* --- Styles for the Individual Blog Page (blog.html) --- */
 
-/* Apply the dark slate background to the blog page */
 .blog-page-body {
     background-color: var(--c-bg-main);
     color: var(--c-text-light);
@@ -515,7 +403,6 @@ main {
     padding: 0;
 }
 
-/* The white navigation bar at the top */
 .blog-page-nav {
     display: flex;
     justify-content: space-between;
@@ -527,34 +414,26 @@ main {
     border-bottom: 1px solid var(--c-border-medium);
 }
 
-/* Styling for the new icon-based back button */
 .go-back-btn {
-    display: inline-flex; /* Use flexbox to center the icon */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px; /* Give it some space around the icon */
-    border-radius: 50%; /* Make it a perfect circle */
-    color: var(--c-text-icon); /* This color is inherited by the SVG's stroke */
-    transition: background-color 0.2s, color 0.2s; /* Smooth transitions */
-    text-decoration: none; /* Remove underline */
+    padding: 8px;
+    border-radius: 50%;
+    color: var(--c-text-icon);
+    transition: background-color 0.2s, color 0.2s;
+    text-decoration: none;
 }
-
-/* Style the SVG itself inside the button */
 .go-back-btn svg {
-    width: 30px;  /* Control icon size */
+    width: 30px;
     height: 30px;
 }
-
-/* On hover, change the background and icon color */
 .go-back-btn:hover {
-    background-color: var(--c-shadow-translucent-hover); /* A light gray background on hover */
-    color: var(--c-accent-alt); /* This changes the SVG stroke color to spruce green */
-}
-/* Container for the "Jump to" button and its dropdown */
-.jump-to-container {
-    position: relative;
+    background-color: var(--c-shadow-translucent-hover);
+    color: var(--c-accent-alt);
 }
 
+.jump-to-container { position: relative; }
 .jump-to-btn {
     background-color: var(--c-bg-light-gray);
     border: 1px solid var(--c-border-medium);
@@ -578,11 +457,7 @@ main {
     padding: 0.5rem 0;
     list-style: none;
 }
-
-.jump-to-container:hover .jump-to-dropdown {
-    display: block;
-}
-
+.jump-to-container:hover .jump-to-dropdown { display: block; }
 .jump-to-dropdown a {
     display: block;
     padding: 0.75rem 1.5rem;
@@ -590,25 +465,20 @@ main {
     text-decoration: none;
     transition: background-color 0.2s;
 }
+.jump-to-dropdown a:hover { background-color: var(--c-bg-light-hover); }
 
-.jump-to-dropdown a:hover {
-    background-color: var(--c-bg-light-hover);
-}
-
-/* The main white box for the blog content */
 .blog-container {
     background-color: white;
-    color: var(--c-text-dark); /* Dark text for readability */
+    color: var(--c-text-dark);
     width: 90%;
     max-width: 800px;
-    margin: 40px auto; /* Creates the gap and centers it */
+    margin: 40px auto;
     padding: 40px 50px;
     border-radius: 8px;
     box-shadow: 0 5px 15px var(--c-shadow-heavy);
 }
 
-/* Different fonts for Title and Text */
-.blog-container h1 { /* Targeting the h1 tag created by marked.js */
+.blog-container h1 {
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 2.8rem;
     color: var(--c-text-dark);
@@ -623,11 +493,7 @@ main {
     line-height: 1.7;
     color: var(--c-text-dark-soft);
 }
-
-#blog-content p {
-    margin-bottom: 1.5em;
-}
-
+#blog-content p { margin-bottom: 1.5em; }
 #blog-content code {
     background-color: var(--c-bg-code-block);
     padding: 2px 6px;
