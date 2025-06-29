@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- We need a library to convert Markdown to HTML. 'marked.js' is excellent. -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<!-- Add a specific class to the body to apply unique styles -->
+<body class="blog-page-body">
+
+    <div class="blog-page-nav">
+        <a href="blogs.html" class="go-back-btn"><- Go Back</a>
+        
+        <div class="jump-to-container">
+            <button class="jump-to-btn">☰ Jump to</button>
+            <div class="jump-to-dropdown">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="memoirs.html">Memoirs</a>
+                <a href="pastimes.html">Pastimes</a>
+                <a href="career.html">Career</a>
+            </div>
+        </div>
+    </div>
+
+    <main class="blog-container">
+        <!-- The JavaScript will populate these elements -->
+        <div id="blog-title"></div>
+        <div id="blog-content"></div>
+    </main>
+    
+    <!-- Link to the new JavaScript file that will handle content loading -->
+    <script src="js/blog.js"></script>
+</body>
+</html>
