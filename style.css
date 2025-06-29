@@ -5,7 +5,7 @@
     --color-background: #1a1a1d;
     --color-base-purple: #3B0764;
     --color-light-purple: #C084FC;
-    --color-hover-purple: #E9D5FF;
+    --color-hover-purple: # ;
     
     /* --- NEW ACCENT COLORS --- */
     --color-primary-accent: #FFA726;  /* A vibrant Amber/Gold */
@@ -24,7 +24,7 @@ body {
     margin: 0;
     
     background-color: var(--color-background);
-    background-image: url('images/Texture.jpg');
+    background-image: url('images/texture2.png');
     background-size: cover; /* Changed to cover for better scaling */
     background-attachment: fixed;
     background-position: center;
