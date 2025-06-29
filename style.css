@@ -252,13 +252,11 @@ main {
 }
 
 .post-item {
-    height: 130px;
-    padding: 20px;
     margin-bottom: 30px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 20px;
     animation: appear linear both;
     animation-timeline: view();
 
@@ -429,6 +427,7 @@ main {
     font-size: 1.1em;
     line-height: 1.7;
     color: white; /* Light gray for easy reading */
+    margin-bottom: 40px;
 }
 
 
