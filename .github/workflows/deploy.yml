@@ -2,8 +2,9 @@ name: Build and Deploy Blog
 
 on:
   push:
-    branches: [ "main" , "experiment"]
+    branches: [ "main", "experiment"] # Or whatever your primary branch is named
 
+# Set the necessary permissions for the workflow to run
 permissions:
   contents: read
   pages: write
@@ -14,24 +15,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # <-- UPDATED from v3 to v4
 
       - name: Install Node.js 🔧
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4 # <-- UPDATED from v3 to v4
         with:
           node-version: '18'
 
-      - name: Install Dependencies 📦 # <-- THIS IS CRITICAL
+      - name: Install Dependencies 📦
         run: npm install
 
       - name: Generate posts.json 📝
         run: node generate-posts-list.js
 
       - name: Upload artifact 📦
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: '.'
+        uses: actions/upload-pages-artifact@v3 # <-- UPDATED from v2 to v3
 
       - name: Deploy to GitHub Pages 🚀
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4 # <-- UPDATED from v2 to v4
