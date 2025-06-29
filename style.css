@@ -456,7 +456,7 @@ main {
 
 /* Apply the dark purple background to the blog page */
 .blog-page-body {
-    background: linear-gradient(to bottom, white, #1E1B2E);
+    background: linear-gradient(to bottom, #2c0044, #1a0029);
     color: #f0e6ff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -544,7 +544,7 @@ main {
 }
 
 /* Different fonts for Title and Text */
-#blog-title h1 { /* Targeting the h1 tag created by marked.js */
+.blog-container h1 { /* Targeting the h1 tag created by marked.js */
     font-family: 'Georgia', 'Times New Roman', serif;
     font-size: 2.8rem;
     color: #2c0044;
